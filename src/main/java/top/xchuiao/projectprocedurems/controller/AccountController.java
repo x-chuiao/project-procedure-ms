@@ -1,6 +1,7 @@
 package top.xchuiao.projectprocedurems.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import top.xchuiao.projectprocedurems.entity.Account;
 import top.xchuiao.projectprocedurems.entity.Client;
 import top.xchuiao.projectprocedurems.entity.Staff;
@@ -58,6 +59,12 @@ public class AccountController {
             return 2;
     }
 
+    <T>T mapToBean(Map<String,Object>map, Class<T> type)
+    {
+        JSONObject object=new JSONObject(map);
+        return object.toJavaObject(type);
+    }
+
     /**
      * 通过主键查询单条数据
      *
@@ -101,8 +108,6 @@ public class AccountController {
     @GetMapping("/account")
     public Responce test(@RequestParam(name = "id") String id, @PathVariable(name = "pwd") String pwd) {
         Responce responce = new Responce();
-
-
         Client client = clientService.queryById(id);
         if (client == null) {
             Staff staff = staffService.queryById(id);
@@ -119,13 +124,13 @@ public class AccountController {
 
     @PostMapping("/basic-info")
     public Responce ModBasicInfo(@RequestParam Map<String, Object> info) {
+        Responce responce=new Responce();
         int type=GetAccountType((String)info.get("id"));
-        JSONObject object=new JSONObject(info);
-        object.toJavaObject(Client.class);
-
+        responce.data=mapToBean(info,Client.class);
         if(type==1)
         {
-
+            Staff staff=mapToBean(info,Staff.class);
+            System.out.println(staff);
         }
         else if(type==2)
         {
@@ -135,7 +140,7 @@ public class AccountController {
         {
 
         }
-        return new Responce();
+        return responce;
 
     }
 
