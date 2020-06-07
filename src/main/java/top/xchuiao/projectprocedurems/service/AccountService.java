@@ -19,6 +19,8 @@ public interface AccountService {
      */
     Account queryById(String id);
 
+    List<Account> queryAll();
+
     /**
      * 查询多条数据
      *

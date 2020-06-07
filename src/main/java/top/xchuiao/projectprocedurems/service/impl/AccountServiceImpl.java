@@ -30,11 +30,16 @@ public class AccountServiceImpl implements AccountService {
         return this.accountDao.queryById(id);
     }
 
+    @Override
+    public List<Account> queryAll() {
+        return this.accountDao.queryAll();
+    }
+
     /**
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     @Override
@@ -76,4 +81,6 @@ public class AccountServiceImpl implements AccountService {
     public boolean deleteById(String id) {
         return this.accountDao.deleteById(id) > 0;
     }
+
+
 }
