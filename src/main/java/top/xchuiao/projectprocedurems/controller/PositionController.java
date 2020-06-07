@@ -1,10 +1,15 @@
 package top.xchuiao.projectprocedurems.controller;
 
+import com.alibaba.fastjson.JSON;
 import top.xchuiao.projectprocedurems.entity.Position;
 import top.xchuiao.projectprocedurems.service.PositionService;
 import org.springframework.web.bind.annotation.*;
+import top.xchuiao.projectprocedurems.utils.Responce;
+import top.xchuiao.projectprocedurems.utils.util;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 /**
  * (Position)表控制层
@@ -13,7 +18,6 @@ import javax.annotation.Resource;
  * @since 2020-06-06 17:59:56
  */
 @RestController
-@RequestMapping("position")
 public class PositionController {
     /**
      * 服务对象
@@ -21,15 +25,21 @@ public class PositionController {
     @Resource
     private PositionService positionService;
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("selectOne")
-    public Position selectOne(String id) {
-        return this.positionService.queryById(id);
+
+    @GetMapping("/staffs")
+    public Responce getAllStaffs()
+    {
+        Responce responce=Responce.getInstance();
+        responce.data=this.positionService.queryAll();
+        return responce;
+    }
+     @PostMapping("/staffs")
+    public Responce modAllStaffs(@RequestParam Map<String,Object> data)
+    {
+        Responce responce=Responce.getInstance();
+        responce.code="10002";
+        responce.msg=util.ModTable(data,this.positionService,Position.class);
+        return responce;
     }
 
 }

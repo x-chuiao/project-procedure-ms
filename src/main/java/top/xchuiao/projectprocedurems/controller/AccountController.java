@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import top.xchuiao.projectprocedurems.service.ClientService;
 import top.xchuiao.projectprocedurems.service.StaffService;
 import top.xchuiao.projectprocedurems.utils.Responce;
+import top.xchuiao.projectprocedurems.utils.util;
+
 
 import javax.annotation.Resource;
 import java.util.Map;
@@ -57,23 +59,6 @@ public class AccountController {
                 return 1;
         } else
             return 2;
-    }
-
-    <T>T mapToBean(Map<String,Object>map, Class<T> type)
-    {
-        JSONObject object=new JSONObject(map);
-        return object.toJavaObject(type);
-    }
-
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("selectOne")
-    public Account selectOne(String id) {
-        return this.accountService.queryById(id);
     }
 
     @PostMapping("/login")
@@ -126,10 +111,10 @@ public class AccountController {
     public Responce ModBasicInfo(@RequestParam Map<String, Object> info) {
         Responce responce=new Responce();
         int type=GetAccountType((String)info.get("id"));
-        responce.data=mapToBean(info,Client.class);
+        responce.data=util.mapToBean(info,Client.class);
         if(type==1)
         {
-            Staff staff=mapToBean(info,Staff.class);
+            Staff staff=util.mapToBean(info,Staff.class);
             System.out.println(staff);
         }
         else if(type==2)
