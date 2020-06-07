@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.xchuiao.projectprocedurems.dao.ProjectDao">
+
+    <resultMap type="top.xchuiao.projectprocedurems.entity.Project" id="ProjectMap">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="cliId" column="cli_id" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="setupTime" column="setup_time" jdbcType="TIMESTAMP"/>
+        <result property="intro" column="intro" jdbcType="VARCHAR"/>
+        <result property="state" column="state" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="ProjectMap">
+        select
+          id, cli_id, name, setup_time, intro, state
+        from project_procedure_ms.project
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="ProjectMap">
+        select
+          id, cli_id, name, setup_time, intro, state
+        from project_procedure_ms.project
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="ProjectMap">
+        select
+          id, cli_id, name, setup_time, intro, state
+        from project_procedure_ms.project
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="cliId != null and cliId != ''">
+                and cli_id = #{cliId}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="setupTime != null">
+                and setup_time = #{setupTime}
+            </if>
+            <if test="intro != null and intro != ''">
+                and intro = #{intro}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into project_procedure_ms.project(cli_id, name, setup_time, intro, state)
+        values (#{cliId}, #{name}, #{setupTime}, #{intro}, #{state})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update project_procedure_ms.project
+        <set>
+            <if test="cliId != null and cliId != ''">
+                cli_id = #{cliId},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="setupTime != null">
+                setup_time = #{setupTime},
+            </if>
+            <if test="intro != null and intro != ''">
+                intro = #{intro},
+            </if>
+            <if test="state != null">
+                state = #{state},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from project_procedure_ms.project where id = #{id}
+    </delete>
+
+</mapper>

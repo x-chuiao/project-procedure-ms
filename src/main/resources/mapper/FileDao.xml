@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.xchuiao.projectprocedurems.dao.FileDao">
+
+    <resultMap type="top.xchuiao.projectprocedurems.entity.File" id="FileMap">
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="path" column="path" jdbcType="VARCHAR"/>
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="FileMap">
+        select
+          name, path, id, type
+        from project_procedure_ms.file
+        where name = #{name}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="FileMap">
+        select
+          name, path, id, type
+        from project_procedure_ms.file
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="FileMap">
+        select
+          name, path, id, type
+        from project_procedure_ms.file
+        <where>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="path != null and path != ''">
+                and path = #{path}
+            </if>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="name" useGeneratedKeys="true">
+        insert into project_procedure_ms.file(type)
+        values (#{type})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update project_procedure_ms.file
+        <set>
+            <if test="type != null">
+                type = #{type},
+            </if>
+        </set>
+        where name = #{name}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from project_procedure_ms.file where name = #{name}
+    </delete>
+
+</mapper>
