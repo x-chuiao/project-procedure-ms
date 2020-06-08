@@ -31,23 +31,6 @@
         select
           id, acc_id, name, sex, contact
         from project_procedure_ms.client
-        <where>
-            <if test="id != null and id != ''">
-                and id = #{id}
-            </if>
-            <if test="accId != null and accId != ''">
-                and acc_id = #{accId}
-            </if>
-            <if test="name != null and name != ''">
-                and name = #{name}
-            </if>
-            <if test="sex != null and sex != ''">
-                and sex = #{sex}
-            </if>
-            <if test="contact != null and contact != ''">
-                and contact = #{contact}
-            </if>
-        </where>
     </select>
 
     <!--新增所有列-->

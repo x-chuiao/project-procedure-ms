@@ -34,8 +34,6 @@ public class AccountController {
     private ClientService clientService;
     @Resource
     private StaffService staffService;
-
-
     Object GetAccountUser(String id)
     {
         Client client = clientService.queryById(id);
@@ -72,61 +70,36 @@ public class AccountController {
             responce.data = account;
         return responce;
     }
-
-    @PostMapping("/account")
-    public Responce getAccount(String id) {
-        Responce responce = new Responce();
-        Client client = clientService.queryById(id);
-        if (client == null) {
-            Staff staff = staffService.queryById(id);
-            if (staff == null) {
-                responce.code = "";
-                responce.msg = "不存在此用户";
-                return responce;
-            } else
-                responce.data = staff;
-        } else
-            responce.data = client;
+    @GetMapping("/accounts")
+    public Responce Getallaccount()
+    {
+        Responce responce=new Responce();
+        responce.data=this.accountService.queryAll();
         return responce;
     }
-
-    @GetMapping("/account")
-    public Responce test(@RequestParam(name = "id") String id, @PathVariable(name = "pwd") String pwd) {
-        Responce responce = new Responce();
-        Client client = clientService.queryById(id);
-        if (client == null) {
-            Staff staff = staffService.queryById(id);
-            if (staff == null) {
-                responce.code = "";
-                responce.msg = "不存在此用户";
-                return responce;
-            } else
-                responce.data = staff;
-        } else
-            responce.data = client;
-        return responce;
-    }
-
     @PostMapping("/basic-info")
     public Responce ModBasicInfo(@RequestParam Map<String, Object> info) {
         Responce responce=new Responce();
         int type=GetAccountType((String)info.get("id"));
-        responce.data=util.mapToBean(info,Client.class);
         if(type==1)
         {
             Staff staff=util.mapToBean(info,Staff.class);
-            System.out.println(staff);
+            // System.out.println(staff);
+            responce.data=staff;
+
         }
         else if(type==2)
         {
-
+            Client client=util.mapToBean(info,Client.class);
+            // System.out.println(staff);
+            responce.data=client;
         }
         else
         {
-
+            responce.code="10001";
+            responce.msg="不存在";
         }
         return responce;
-
     }
 
     @GetMapping("/basic-info")
@@ -144,11 +117,5 @@ public class AccountController {
         }
         return responce;
     }
-    @GetMapping("/test")
-    public Responce Test()
-    {
-        Responce responce=new Responce();
-        responce.data=this.accountService.queryAll();
-        return responce;
-    }
+
 }

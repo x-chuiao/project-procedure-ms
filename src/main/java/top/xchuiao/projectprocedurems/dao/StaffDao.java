@@ -62,4 +62,5 @@ public interface StaffDao {
      */
     int deleteById(String id);
 
+    List<Staff> queryAll();
 }

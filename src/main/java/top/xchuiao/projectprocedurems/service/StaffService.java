@@ -1,5 +1,6 @@
 package top.xchuiao.projectprocedurems.service;
 
+import top.xchuiao.projectprocedurems.entity.Account;
 import top.xchuiao.projectprocedurems.entity.Staff;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface StaffService {
      * @return 实例对象
      */
     Staff queryById(String id);
-
+    List<Staff> queryAll();
     /**
      * 查询多条数据
      *

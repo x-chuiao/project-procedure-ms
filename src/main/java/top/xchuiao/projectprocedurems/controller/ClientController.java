@@ -3,6 +3,7 @@ package top.xchuiao.projectprocedurems.controller;
 import top.xchuiao.projectprocedurems.entity.Client;
 import top.xchuiao.projectprocedurems.service.ClientService;
 import org.springframework.web.bind.annotation.*;
+import top.xchuiao.projectprocedurems.utils.Responce;
 
 import javax.annotation.Resource;
 
@@ -13,7 +14,6 @@ import javax.annotation.Resource;
  * @since 2020-06-06 17:59:47
  */
 @RestController
-@RequestMapping("client")
 public class ClientController {
     /**
      * 服务对象
@@ -21,15 +21,11 @@ public class ClientController {
     @Resource
     private ClientService clientService;
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("selectOne")
-    public Client selectOne(String id) {
-        return this.clientService.queryById(id);
+    @GetMapping("/clients")
+    public Responce getAllClients()
+    {
+        Responce responce=new Responce();
+        responce.data=this.clientService.queryAll();
+        return responce;
     }
-
 }

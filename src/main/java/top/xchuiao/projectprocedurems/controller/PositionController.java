@@ -26,15 +26,15 @@ public class PositionController {
     private PositionService positionService;
 
 
-    @GetMapping("/staffs")
-    public Responce getAllStaffs()
+    @GetMapping("/positions")
+    public Responce getAllPositions()
     {
         Responce responce=Responce.getInstance();
         responce.data=this.positionService.queryAll();
         return responce;
     }
-     @PostMapping("/staffs")
-    public Responce modAllStaffs(@RequestParam Map<String,Object> data)
+     @PostMapping("/positions")
+    public Responce modAllPositions(@RequestParam Map<String,Object> data)
     {
         Responce responce=Responce.getInstance();
         responce.code="10002";

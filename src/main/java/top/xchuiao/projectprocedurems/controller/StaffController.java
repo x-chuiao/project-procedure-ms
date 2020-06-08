@@ -3,6 +3,7 @@ package top.xchuiao.projectprocedurems.controller;
 import top.xchuiao.projectprocedurems.entity.Staff;
 import top.xchuiao.projectprocedurems.service.StaffService;
 import org.springframework.web.bind.annotation.*;
+import top.xchuiao.projectprocedurems.utils.Responce;
 
 import javax.annotation.Resource;
 
@@ -13,7 +14,6 @@ import javax.annotation.Resource;
  * @since 2020-06-06 17:59:58
  */
 @RestController
-@RequestMapping("staff")
 public class StaffController {
     /**
      * 服务对象
@@ -21,15 +21,12 @@ public class StaffController {
     @Resource
     private StaffService staffService;
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("selectOne")
-    public Staff selectOne(String id) {
-        return this.staffService.queryById(id);
+    @GetMapping("/staffs")
+    public Responce getAllStaffs()
+    {
+        Responce responce=new Responce();
+        responce.data=this.staffService.queryAll();
+        return responce;
     }
 
 }

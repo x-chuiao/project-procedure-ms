@@ -62,4 +62,5 @@ public interface ClientDao {
      */
     int deleteById(String id);
 
+    List<Client> queryAll();
 }

@@ -1,5 +1,6 @@
 package top.xchuiao.projectprocedurems.service;
 
+import top.xchuiao.projectprocedurems.entity.Account;
 import top.xchuiao.projectprocedurems.entity.Client;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public interface ClientService {
      * @return 实例对象
      */
     Client queryById(String id);
-
+    List<Client> queryAll();
     /**
      * 查询多条数据
      *
