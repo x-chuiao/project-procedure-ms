@@ -22,7 +22,7 @@ public class StaffController {
     private StaffService staffService;
 
     @GetMapping("/staffs")
-    public Responce getAllClients()
+    public Responce getAllStaffs()
     {
         Responce responce=new Responce();
         responce.data=this.staffService.queryAll();
