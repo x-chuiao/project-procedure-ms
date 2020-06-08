@@ -23,6 +23,14 @@
         limit #{offset}, #{limit}
     </select>
 
+    <select id="queryAllPmember" resultMap="ProjectmemberMap">
+        select
+        pro_id,id
+        from projectmember join staff
+        using (id)
+        WHERE staff.dep_id=#{depId}
+    </select>
+
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="ProjectmemberMap">
         select
@@ -39,9 +47,9 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="proId" useGeneratedKeys="true">
-        insert into project_procedure_ms.projectmember()
-        values ()
+    <insert id="insert" >
+        insert into project_procedure_ms.projectmember(pro_id,id)
+        values (#{proId},#{id})
     </insert>
 
     <!--通过主键修改数据-->
@@ -54,7 +62,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from project_procedure_ms.projectmember where pro_id = #{proId}
+        delete from project_procedure_ms.projectmember where pro_id = #{proId} and id=#{id}
     </delete>
 
 </mapper>

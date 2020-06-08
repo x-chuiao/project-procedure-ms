@@ -1,10 +1,13 @@
 package top.xchuiao.projectprocedurems.controller;
 
 import top.xchuiao.projectprocedurems.entity.File;
+import top.xchuiao.projectprocedurems.entity.Projectmember;
 import top.xchuiao.projectprocedurems.service.FileService;
 import org.springframework.web.bind.annotation.*;
+import top.xchuiao.projectprocedurems.utils.Responce;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (File)表控制层
@@ -13,7 +16,6 @@ import javax.annotation.Resource;
  * @since 2020-06-06 17:59:55
  */
 @RestController
-@RequestMapping("file")
 public class FileController {
     /**
      * 服务对象
@@ -21,15 +23,22 @@ public class FileController {
     @Resource
     private FileService fileService;
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("selectOne")
-    public File selectOne(String id) {
-        return this.fileService.queryById(id);
+    @GetMapping("/project-file")
+    public Responce getAllPfile(@RequestParam("pro_id") String id){
+
+        Responce responce = new Responce();
+
+        List<File> files= fileService.queryAllPfile(id);
+        if(files==null)
+        {
+            responce.code="10001";
+            responce.msg="不存在文件列表";
+        }
+        else
+        {
+            responce.data=files;
+        }
+        return responce;
     }
 
 }

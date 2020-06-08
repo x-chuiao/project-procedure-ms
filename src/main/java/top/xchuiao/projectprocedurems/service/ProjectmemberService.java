@@ -19,6 +19,8 @@ public interface ProjectmemberService {
      */
     Projectmember queryById(String proId);
 
+    List<Projectmember> queryAllPmember(String depId);
+
     List<Projectmember> queryAll(Projectmember projectmember);
 
     /**
@@ -49,9 +51,10 @@ public interface ProjectmemberService {
     /**
      * 通过主键删除数据
      *
-     * @param proId 主键
+     * @param projectmember 主键
      * @return 是否成功
      */
-    boolean deleteById(String proId);
+    boolean deleteById(Projectmember projectmember);
+
 
 }

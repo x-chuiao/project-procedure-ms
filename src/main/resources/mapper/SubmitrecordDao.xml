@@ -18,9 +18,21 @@
         select
           pro_id, sta_id, id, intro, submit_time, director_audit, director_comment, client_comment
         from project_procedure_ms.submitrecord
-        where pro_id = #{proId}
+        where id = #{id}
     </select>
 
+    <select id="queryByStaId" resultMap="SubmitrecordMap">
+        select
+          pro_id, sta_id, id, intro, submit_time, director_audit, director_comment, client_comment
+        from project_procedure_ms.submitrecord
+        where sta_id = #{staId}
+    </select>
+    <select id="queryByDaudit" resultMap="SubmitrecordMap">
+        select
+          pro_id, sta_id, id, intro, submit_time, director_audit, director_comment, client_comment
+        from project_procedure_ms.submitrecord
+        where director_audit =#{directorAudit}
+    </select>
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="SubmitrecordMap">
         select
@@ -63,9 +75,9 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="proId" useGeneratedKeys="true">
-        insert into project_procedure_ms.submitrecord(intro, submit_time, director_audit, director_comment, client_comment)
-        values (#{intro}, #{submitTime}, #{directorAudit}, #{directorComment}, #{clientComment})
+    <insert id="insert" >
+        insert into project_procedure_ms.submitrecord(pro_id,sta_id,id,intro, submit_time, director_audit, director_comment, client_comment)
+        values (#{proId},#{staId},#{id},#{intro}, #{submitTime}, #{directorAudit}, #{directorComment}, #{clientComment})
     </insert>
 
     <!--通过主键修改数据-->

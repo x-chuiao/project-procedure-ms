@@ -2,6 +2,7 @@ package top.xchuiao.projectprocedurems.service.impl;
 
 import top.xchuiao.projectprocedurems.entity.File;
 import top.xchuiao.projectprocedurems.dao.FileDao;
+import top.xchuiao.projectprocedurems.entity.Projectmember;
 import top.xchuiao.projectprocedurems.service.FileService;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,10 @@ public class FileServiceImpl implements FileService {
         return this.fileDao.queryById(name);
     }
 
+    @Override
+    public  List<File> queryAllPfile(String proId){
+        return this.fileDao.queryAllPfile(proId);
+    }
     /**
      * 查询多条数据
      *

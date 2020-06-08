@@ -30,6 +30,11 @@ public class SubmitrecordServiceImpl implements SubmitrecordService {
         return this.submitrecordDao.queryById(proId);
     }
 
+    @Override
+    public List<Submitrecord> queryByStaId(String staId) {
+        return this.submitrecordDao.queryByStaId(staId);
+    }
+
     /**
      * 查询多条数据
      *
@@ -42,6 +47,10 @@ public class SubmitrecordServiceImpl implements SubmitrecordService {
         return this.submitrecordDao.queryAllByLimit(offset, limit);
     }
 
+    @Override
+    public List<Submitrecord> queryByDaudit(int directorAudit) {
+        return this.submitrecordDao.queryByDaudit(directorAudit);
+    }
     /**
      * 新增数据
      *

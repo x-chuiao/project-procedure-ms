@@ -2,6 +2,8 @@ package top.xchuiao.projectprocedurems.dao;
 
 import top.xchuiao.projectprocedurems.entity.File;
 import org.apache.ibatis.annotations.Param;
+import top.xchuiao.projectprocedurems.entity.Projectmember;
+
 import java.util.List;
 
 /**
@@ -62,4 +64,5 @@ public interface FileDao {
      */
     int deleteById(String name);
 
+    List<File> queryAllPfile(String proId);
 }

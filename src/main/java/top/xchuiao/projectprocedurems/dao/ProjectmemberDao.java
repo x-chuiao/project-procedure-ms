@@ -19,7 +19,7 @@ public interface ProjectmemberDao {
      * @return 实例对象
      */
     Projectmember queryById(String proId);
-
+    List<Projectmember> queryAllPmember(String depId);
     /**
      * 查询指定行数据
      *
@@ -57,9 +57,9 @@ public interface ProjectmemberDao {
     /**
      * 通过主键删除数据
      *
-     * @param proId 主键
+     * @param projectmember 主键
      * @return 影响行数
      */
-    int deleteById(String proId);
+    int deleteById(Projectmember projectmember);
 
 }

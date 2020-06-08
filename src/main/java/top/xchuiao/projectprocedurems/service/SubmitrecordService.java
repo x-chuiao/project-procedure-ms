@@ -18,7 +18,7 @@ public interface SubmitrecordService {
      * @return 实例对象
      */
     Submitrecord queryById(String proId);
-
+    List<Submitrecord> queryByStaId(String staId);
     /**
      * 查询多条数据
      *
@@ -27,7 +27,7 @@ public interface SubmitrecordService {
      * @return 对象列表
      */
     List<Submitrecord> queryAllByLimit(int offset, int limit);
-
+    List<Submitrecord> queryByDaudit(int directorAudit);
     /**
      * 新增数据
      *

@@ -36,11 +36,21 @@ public class util {
         }
         return result;
     }
-
     public static <S, T> String ModTable(Map<String, Object> data, S service, Class<T> type) {
         List<T> add = JSON.parseArray((String) data.get("add"), type);
         List<T> mod = JSON.parseArray((String) data.get("mod"), type);
         List<String> del = JSON.parseArray((String) data.get("del"), String.class);
+        Map<String,List<String>> result=new HashMap<>();
+        result.put("add",mod(service,add,"insert"));
+        result.put("mod",mod(service,mod,"update"));
+        result.put("del",mod(service,del,"deleteById"));
+        return JSON.toJSONString(result);
+    }
+
+    public static <S, T,D> String ModTable(Map<String, Object> data, S service, Class<T> type,Class<D> delType) {
+        List<T> add = JSON.parseArray((String) data.get("add"), type);
+        List<T> mod = JSON.parseArray((String) data.get("mod"), type);
+        List<D> del = JSON.parseArray((String) data.get("del"), delType);
         Map<String,List<String>> result=new HashMap<>();
         result.put("add",mod(service,add,"insert"));
         result.put("mod",mod(service,mod,"update"));

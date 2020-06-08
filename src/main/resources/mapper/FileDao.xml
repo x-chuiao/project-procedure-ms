@@ -24,7 +24,13 @@
         from project_procedure_ms.file
         limit #{offset}, #{limit}
     </select>
-
+    <select id="queryAllPfile" resultMap="FileMap">
+         SELECT
+         name,path,id,type
+         FROM  file JOIN submitrecord
+         USING(id)
+         WHERE submitrecord.pro_id = #{proId};
+    </select>
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="FileMap">
         select

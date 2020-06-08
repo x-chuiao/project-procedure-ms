@@ -1,6 +1,8 @@
 package top.xchuiao.projectprocedurems.service;
 
 import top.xchuiao.projectprocedurems.entity.File;
+import top.xchuiao.projectprocedurems.entity.Projectmember;
+
 import java.util.List;
 
 /**
@@ -18,7 +20,7 @@ public interface FileService {
      * @return 实例对象
      */
     File queryById(String name);
-
+    List<File> queryAllPfile(String proId);
     /**
      * 查询多条数据
      *

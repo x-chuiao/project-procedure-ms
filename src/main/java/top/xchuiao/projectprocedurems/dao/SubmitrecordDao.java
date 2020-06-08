@@ -19,7 +19,6 @@ public interface SubmitrecordDao {
      * @return 实例对象
      */
     Submitrecord queryById(String proId);
-
     /**
      * 查询指定行数据
      *
@@ -62,4 +61,7 @@ public interface SubmitrecordDao {
      */
     int deleteById(String proId);
 
+    List<Submitrecord> queryByStaId(String staId);
+
+    List<Submitrecord> queryByDaudit(int directorAudit);
 }
