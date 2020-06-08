@@ -30,6 +30,11 @@ public class DepartmentServiceImpl implements DepartmentService {
         return this.departmentDao.queryById(id);
     }
 
+    @Override
+    public List<Department> queryAll() {
+        return null;
+    }
+
     /**
      * 查询多条数据
      *

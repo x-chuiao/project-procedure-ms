@@ -38,6 +38,8 @@ public interface ProjectDao {
      */
     List<Project> queryAll(Project project);
 
+    List<Project> queryAllByProIds(List<String> pro_ids);
+
     /**
      * 新增数据
      *

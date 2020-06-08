@@ -1,6 +1,7 @@
 package top.xchuiao.projectprocedurems.service;
 
 import top.xchuiao.projectprocedurems.entity.Account;
+
 import java.util.List;
 
 /**
@@ -53,5 +54,7 @@ public interface AccountService {
      * @return 是否成功
      */
     boolean deleteById(String id);
+    Object getAccountUser(String id);
+    int getAccountType(String id);
 
 }

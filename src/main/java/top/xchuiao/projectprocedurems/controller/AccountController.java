@@ -1,7 +1,5 @@
 package top.xchuiao.projectprocedurems.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
 import top.xchuiao.projectprocedurems.entity.Account;
 import top.xchuiao.projectprocedurems.entity.Client;
 import top.xchuiao.projectprocedurems.entity.Position;
@@ -35,30 +33,7 @@ public class AccountController {
     private ClientService clientService;
     @Resource
     private StaffService staffService;
-    Object GetAccountUser(String id)
-    {
-        Client client = clientService.queryById(id);
-        if (client == null) {
-            Staff staff = staffService.queryById(id);
-            if (staff == null) {
-                return null;
-            } else
-                return staff;
-        } else
-            return client;
-    }
-    int GetAccountType(String id)
-    {
-        Client client = clientService.queryById(id);
-        if (client == null) {
-            Staff staff = staffService.queryById(id);
-            if (staff == null) {
-                return 0;
-            } else
-                return 1;
-        } else
-            return 2;
-    }
+
 
     @PostMapping("/login")
     public Responce login(String id, String pwd) {
@@ -103,7 +78,7 @@ public class AccountController {
     @PostMapping("/basic-info")
     public Responce ModBasicInfo(@RequestParam Map<String, Object> info) {
         Responce responce=new Responce();
-        int type=GetAccountType((String)info.get("id"));
+        int type=accountService.getAccountType((String)info.get("id"));
         if(type==1)
         {
             Staff staff=util.mapToBean(info,Staff.class);
@@ -130,7 +105,7 @@ public class AccountController {
     @GetMapping("/basic-info")
     public Responce getBasicInfo(@RequestParam(name = "id") String id) {
         Responce responce = new Responce();
-        Object o=GetAccountUser(id);
+        Object o=accountService.getAccountUser(id);
         if(o==null)
         {
             responce.code="10001";

@@ -31,9 +31,9 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into project_procedure_ms.position(name)
-        values (#{name})
+    <insert id="insert" keyProperty="id" >
+        insert into project_procedure_ms.position(id, name)
+        values (#{id},#{name})
     </insert>
 
     <!--通过主键修改数据-->

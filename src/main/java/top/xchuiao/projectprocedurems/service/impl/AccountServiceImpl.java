@@ -1,9 +1,13 @@
 package top.xchuiao.projectprocedurems.service.impl;
 
-import top.xchuiao.projectprocedurems.entity.Account;
 import top.xchuiao.projectprocedurems.dao.AccountDao;
+import top.xchuiao.projectprocedurems.entity.Account;
+import top.xchuiao.projectprocedurems.entity.Client;
+import top.xchuiao.projectprocedurems.entity.Staff;
 import top.xchuiao.projectprocedurems.service.AccountService;
 import org.springframework.stereotype.Service;
+import top.xchuiao.projectprocedurems.service.ClientService;
+import top.xchuiao.projectprocedurems.service.StaffService;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,6 +22,10 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService {
     @Resource
     private AccountDao accountDao;
+     @Resource
+    private ClientService clientService;
+    @Resource
+    private StaffService staffService;
 
     /**
      * 通过ID查询单条数据
@@ -82,5 +90,37 @@ public class AccountServiceImpl implements AccountService {
         return this.accountDao.deleteById(id) > 0;
     }
 
+    @Override
+    public Object getAccountUser(String id)
+    {
+        Client client = clientService.queryById(id);
+        if (client == null) {
+            Staff staff = staffService.queryById(id);
+            if (staff == null) {
+                return null;
+            } else
+                return staff;
+        } else
+            return client;
+    }
+
+    /**
+     *
+     * @param id
+     * @return 0表示没有,1表示员工,2表示客户
+     */
+    @Override
+    public int getAccountType(String id)
+    {
+        Client client = clientService.queryById(id);
+        if (client == null) {
+            Staff staff = staffService.queryById(id);
+            if (staff == null) {
+                return 0;
+            } else
+                return 1;
+        } else
+            return 2;
+    }
 
 }
