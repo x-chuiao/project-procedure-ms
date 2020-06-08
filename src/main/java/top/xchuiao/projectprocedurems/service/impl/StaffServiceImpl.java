@@ -35,6 +35,11 @@ public class StaffServiceImpl implements StaffService {
        return this.staffDao.queryAll();
     }
 
+    @Override
+    public List<Staff> queryAll(Staff staff) {
+        return this.staffDao.queryAllByStaff(staff);
+    }
+
     /**
      * 查询多条数据
      *

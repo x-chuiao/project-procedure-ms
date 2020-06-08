@@ -36,7 +36,7 @@ public interface ClientDao {
      * @param client 实例对象
      * @return 对象列表
      */
-    List<Client> queryAll(Client client);
+    List<Client> queryAllByClient(Client client);
 
     /**
      * 新增数据

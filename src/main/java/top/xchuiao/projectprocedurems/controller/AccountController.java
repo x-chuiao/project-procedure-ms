@@ -39,7 +39,7 @@ public class AccountController {
     public Responce login(String id, String pwd) {
         Responce responce = new Responce();
         Account account = this.accountService.queryById(id);
-        if (account == null || !account.getPwd().equals(id) ){
+        if (account == null || !account.getPwd().equals(pwd) ){
             responce.code = "10001";
             responce.msg = "账密错误";
         } else
@@ -78,20 +78,17 @@ public class AccountController {
     @PostMapping("/basic-info")
     public Responce ModBasicInfo(@RequestParam Map<String, Object> info) {
         Responce responce=new Responce();
-        int type=accountService.getAccountType((String)info.get("id"));
+        int type=accountService.getAccountType((String)info.get("acc_id"));
         if(type==1)
         {
             Staff staff=util.mapToBean(info,Staff.class);
             this.staffService.update(staff);
-            // System.out.println(staff);
             responce.data=staff;
-
         }
         else if(type==2)
         {
             Client client=util.mapToBean(info,Client.class);
             this.clientService.update(client);
-            // System.out.println(staff);
             responce.data=client;
         }
         else

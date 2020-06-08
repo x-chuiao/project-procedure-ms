@@ -31,6 +31,12 @@ public class ClientServiceImpl implements ClientService {
     }
     @Override
     public List<Client> queryAll() { return this.clientDao.queryAll(); }
+
+    @Override
+    public List<Client> queryAll(Client client) {
+        return this.clientDao.queryAllByClient(client);
+    }
+
     /**
      * 查询多条数据
      *

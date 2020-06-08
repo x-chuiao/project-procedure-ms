@@ -91,36 +91,37 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Object getAccountUser(String id)
+    public Object getAccountUser(String acc_id)
     {
-        Client client = clientService.queryById(id);
-        if (client == null) {
-            Staff staff = staffService.queryById(id);
-            if (staff == null) {
-                return null;
-            } else
-                return staff;
-        } else
-            return client;
+        Account account=accountDao.queryById(acc_id);
+        if(account==null)
+            return null;
+        List<Staff> staffs=staffService.queryAll(new Staff(){{setAccId(acc_id);}});
+        if(!staffs.isEmpty())
+            return staffs.stream().findAny();
+        List<Client> clients = clientService.queryAll(new Client(){{setAccId(acc_id);}});
+        if (!clients.isEmpty())
+            return  clients.stream().findAny();
+        return null;
     }
 
     /**
      *
-     * @param id
-     * @return 0表示没有,1表示员工,2表示客户
+     * @param acc_id
+     * @return 0表示不存在,1表示员工,2表示客户,3表示未使用
      */
     @Override
-    public int getAccountType(String id)
+    public int getAccountType(String acc_id)
     {
-        Client client = clientService.queryById(id);
-        if (client == null) {
-            Staff staff = staffService.queryById(id);
-            if (staff == null) {
-                return 0;
-            } else
-                return 1;
-        } else
-            return 2;
+        if(accountDao.queryById(acc_id)==null)
+            return 0;
+        List<Staff> staffs=staffService.queryAll(new Staff(){{setAccId(acc_id);}});
+        if(!staffs.isEmpty())
+            return 1;
+        List<Client> clients = clientService.queryAll(new Client(){{setAccId(acc_id);}});
+        if (!clients.isEmpty())
+            return  2;
+        return 3;
     }
 
 }

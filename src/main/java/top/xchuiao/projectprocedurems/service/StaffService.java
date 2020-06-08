@@ -19,6 +19,7 @@ public interface StaffService {
      */
     Staff queryById(String id);
     List<Staff> queryAll();
+    List<Staff> queryAll(Staff staff);
     /**
      * 查询多条数据
      *

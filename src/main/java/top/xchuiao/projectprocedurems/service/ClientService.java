@@ -19,6 +19,7 @@ public interface ClientService {
      */
     Client queryById(String id);
     List<Client> queryAll();
+    List<Client> queryAll(Client client);
     /**
      * 查询多条数据
      *

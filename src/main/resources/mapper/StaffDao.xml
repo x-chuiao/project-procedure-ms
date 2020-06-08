@@ -30,6 +30,38 @@
     </select>
 
     <!--通过实体作为筛选条件查询-->
+    <select id="queryAllByStaff" resultMap="StaffMap">
+        select
+          id, pos_id, dep_id, acc_id, name, age, sex, contact
+        from project_procedure_ms.staff
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="accId != null and accId != ''">
+                and acc_id = #{accId}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="sex != null and sex != ''">
+                and sex = #{sex}
+            </if>
+            <if test="contact != null and contact!= ''">
+                and contact = #{contact}
+            </if>
+            <if test="posId != null and posId!= ''">
+                and pos_id = #{posId}
+            </if>
+            <if test="depId != null and depId!= ''">
+                and dep_id = #{depId}
+            </if>
+            <if test="age != null and age!= ''">
+                and age = #{age}
+            </if>
+        </where>
+    </select>
+
     <select id="queryAll" resultMap="StaffMap">
         select
           id, pos_id, dep_id, acc_id, name, age, sex, contact
