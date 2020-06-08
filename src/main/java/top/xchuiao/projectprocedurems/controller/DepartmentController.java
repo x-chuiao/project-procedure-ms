@@ -1,10 +1,14 @@
 package top.xchuiao.projectprocedurems.controller;
 
 import top.xchuiao.projectprocedurems.entity.Department;
+import top.xchuiao.projectprocedurems.entity.Position;
 import top.xchuiao.projectprocedurems.service.DepartmentService;
 import org.springframework.web.bind.annotation.*;
+import top.xchuiao.projectprocedurems.utils.Responce;
+import top.xchuiao.projectprocedurems.utils.util;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * (Department)表控制层
@@ -13,7 +17,6 @@ import javax.annotation.Resource;
  * @since 2020-06-06 17:59:54
  */
 @RestController
-@RequestMapping("department")
 public class DepartmentController {
     /**
      * 服务对象
@@ -21,15 +24,21 @@ public class DepartmentController {
     @Resource
     private DepartmentService departmentService;
 
-    /**
-     * 通过主键查询单条数据
-     *
-     * @param id 主键
-     * @return 单条数据
-     */
-    @GetMapping("selectOne")
-    public Department selectOne(String id) {
-        return this.departmentService.queryById(id);
+  @GetMapping("/departments")
+    public Responce getAllPositions()
+    {
+        Responce responce=Responce.getInstance();
+        responce.data=this.departmentService.queryAll();
+        return responce;
+    }
+
+     @PostMapping("/departments")
+    public Responce modAllPositions(@RequestParam Map<String,Object> data)
+    {
+        Responce responce=Responce.getInstance();
+        responce.code="10002";
+        responce.msg= util.ModTable(data,this.departmentService, Department.class);
+        return responce;
     }
 
 }

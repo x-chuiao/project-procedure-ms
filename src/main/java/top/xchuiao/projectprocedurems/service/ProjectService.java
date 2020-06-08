@@ -19,6 +19,10 @@ public interface ProjectService {
      */
     Project queryById(String id);
 
+    List<Project> queryAll(Project project);
+
+    List<Project> queryAll(List<String> pro_id);
+
     /**
      * 查询多条数据
      *

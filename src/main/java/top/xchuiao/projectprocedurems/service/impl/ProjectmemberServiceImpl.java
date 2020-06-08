@@ -30,6 +30,11 @@ public class ProjectmemberServiceImpl implements ProjectmemberService {
         return this.projectmemberDao.queryById(proId);
     }
 
+    @Override
+    public List<Projectmember> queryAll(Projectmember projectmember) {
+        return this.projectmemberDao.queryAll(projectmember);
+    }
+
     /**
      * 查询多条数据
      *

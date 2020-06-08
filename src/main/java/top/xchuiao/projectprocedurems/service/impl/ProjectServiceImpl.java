@@ -30,6 +30,17 @@ public class ProjectServiceImpl implements ProjectService {
         return this.projectDao.queryById(id);
     }
 
+    @Override
+    public List<Project> queryAll(Project project) {
+        return this.projectDao.queryAll(project);
+    }
+
+    @Override
+    public List<Project> queryAll(List<String> pro_id) {
+        return null;
+    }
+
+
     /**
      * 查询多条数据
      *

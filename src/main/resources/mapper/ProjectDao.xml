@@ -28,7 +28,7 @@
     </select>
 
     <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="ProjectMap">
+    <select id="queryAll" parameterType="top.xchuiao.projectprocedurems.entity.Project" resultMap="ProjectMap">
         select
           id, cli_id, name, setup_time, intro, state
         from project_procedure_ms.project
@@ -51,6 +51,15 @@
             <if test="state != null">
                 and state = #{state}
             </if>
+        </where>
+    </select>
+
+     <select id="queryAll" parameterType="java.util.List" resultMap="ProjectMap">
+        select
+          id, cli_id, name, setup_time, intro, state
+        from project_procedure_ms.project
+        <where>
+            id in #{pro_ids}
         </where>
     </select>
 

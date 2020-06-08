@@ -19,6 +19,8 @@ public interface ProjectmemberService {
      */
     Projectmember queryById(String proId);
 
+    List<Projectmember> queryAll(Projectmember projectmember);
+
     /**
      * 查询多条数据
      *

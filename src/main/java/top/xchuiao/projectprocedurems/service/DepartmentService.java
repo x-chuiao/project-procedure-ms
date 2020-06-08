@@ -18,6 +18,7 @@ public interface DepartmentService {
      * @return 实例对象
      */
     Department queryById(String id);
+    List<Department> queryAll();
 
     /**
      * 查询多条数据

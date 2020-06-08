@@ -47,9 +47,9 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="name" useGeneratedKeys="true">
-        insert into project_procedure_ms.file(type)
-        values (#{type})
+    <insert id="insert" keyProperty="name" >
+        insert into project_procedure_ms.file(name, path, id, type)
+        values (#{name},#{path},#{id},#{type})
     </insert>
 
     <!--通过主键修改数据-->
