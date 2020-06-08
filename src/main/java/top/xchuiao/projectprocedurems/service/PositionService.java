@@ -19,6 +19,8 @@ public interface PositionService {
      */
     Position queryById(String id);
 
+    List<Position> queryAll();
+
     /**
      * 查询多条数据
      *

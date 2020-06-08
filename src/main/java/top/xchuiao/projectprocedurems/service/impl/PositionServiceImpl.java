@@ -30,11 +30,16 @@ public class PositionServiceImpl implements PositionService {
         return this.positionDao.queryById(id);
     }
 
+    @Override
+    public List<Position> queryAll() {
+        return this.positionDao.queryAll();
+    }
+
     /**
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     @Override
@@ -50,7 +55,11 @@ public class PositionServiceImpl implements PositionService {
      */
     @Override
     public Position insert(Position position) {
-        this.positionDao.insert(position);
+        try {
+            this.positionDao.insert(position);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return position;
     }
 
