@@ -32,9 +32,9 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into project_procedure_ms.account(rol_id, pwd)
-        values (#{rolId}, #{pwd})
+    <insert id="insert" keyProperty="id" >
+        insert into project_procedure_ms.account(id,rol_id, pwd)
+        values (#{id},#{rolId}, #{pwd})
     </insert>
 
     <!--通过主键修改数据-->

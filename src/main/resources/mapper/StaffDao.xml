@@ -37,9 +37,9 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into project_procedure_ms.staff(pos_id, dep_id, acc_id, name, age, sex, contact)
-        values (#{posId}, #{depId}, #{accId}, #{name}, #{age}, #{sex}, #{contact})
+    <insert id="insert" keyProperty="id" >
+        insert into project_procedure_ms.staff(id,pos_id, dep_id, acc_id, name, age, sex, contact)
+        values (#{id},#{posId}, #{depId}, #{accId}, #{name}, #{age}, #{sex}, #{contact})
     </insert>
 
     <!--通过主键修改数据-->

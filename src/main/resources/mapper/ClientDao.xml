@@ -34,9 +34,9 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into project_procedure_ms.client(acc_id, name, sex, contact)
-        values (#{accId}, #{name}, #{sex}, #{contact})
+    <insert id="insert" keyProperty="id" >
+        insert into project_procedure_ms.client(id,acc_id, name, sex, contact)
+        values (#{id},#{accId}, #{name}, #{sex}, #{contact})
     </insert>
 
     <!--通过主键修改数据-->

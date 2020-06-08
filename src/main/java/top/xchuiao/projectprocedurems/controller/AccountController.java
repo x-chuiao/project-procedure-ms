@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import top.xchuiao.projectprocedurems.entity.Account;
 import top.xchuiao.projectprocedurems.entity.Client;
+import top.xchuiao.projectprocedurems.entity.Position;
 import top.xchuiao.projectprocedurems.entity.Staff;
 import top.xchuiao.projectprocedurems.service.AccountService;
 import org.springframework.web.bind.annotation.*;
@@ -63,7 +64,7 @@ public class AccountController {
     public Responce login(String id, String pwd) {
         Responce responce = new Responce();
         Account account = this.accountService.queryById(id);
-        if (account == null || !account.getPwd().equals(pwd)) {
+        if (account == null || !account.getPwd().equals(id) ){
             responce.code = "10001";
             responce.msg = "账密错误";
         } else
@@ -77,6 +78,28 @@ public class AccountController {
         responce.data=this.accountService.queryAll();
         return responce;
     }
+    @PostMapping("/account")
+    public Responce modAccount(@RequestParam Map<String,Object> data)
+    {
+        Responce responce=Responce.getInstance();
+        Account account = this.accountService.queryById((String)data.get("id"));
+        if (account == null || !account.getPwd().equals((String)data.get("org_pwd"))) {
+            responce.code = "10001";
+            responce.msg = "密码错误";
+        } else
+        this.accountService.update(new Account(){{setId((String)data.get("id"));setPwd((String)data.get("new_pwd"));}});
+        return responce;
+    }
+
+    @PostMapping("/accounts")
+    public Responce modAllAccounts(@RequestParam Map<String,Object> data)
+    {
+        Responce responce=Responce.getInstance();
+        responce.code="10002";
+        responce.msg=util.ModTable(data,this.accountService,Account.class);
+        return responce;
+    }
+
     @PostMapping("/basic-info")
     public Responce ModBasicInfo(@RequestParam Map<String, Object> info) {
         Responce responce=new Responce();
@@ -84,6 +107,7 @@ public class AccountController {
         if(type==1)
         {
             Staff staff=util.mapToBean(info,Staff.class);
+            this.staffService.update(staff);
             // System.out.println(staff);
             responce.data=staff;
 
@@ -91,6 +115,7 @@ public class AccountController {
         else if(type==2)
         {
             Client client=util.mapToBean(info,Client.class);
+            this.clientService.update(client);
             // System.out.println(staff);
             responce.data=client;
         }
