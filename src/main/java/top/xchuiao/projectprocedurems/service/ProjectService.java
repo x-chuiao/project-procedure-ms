@@ -21,7 +21,7 @@ public interface ProjectService {
 
     List<Project> queryAll(Project project);
 
-    List<Project> queryAll(List<String> pro_id);
+    List<Project> queryAll(List<String> pro_ids);
 
     /**
      * 查询多条数据

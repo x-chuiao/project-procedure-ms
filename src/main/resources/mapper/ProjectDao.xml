@@ -13,16 +13,24 @@
 
     <!--查询单个-->
     <select id="queryById" resultMap="ProjectMap">
-        select
-          id, cli_id, name, setup_time, intro, state
+        select id,
+               cli_id,
+               name,
+               setup_time,
+               intro,
+               state
         from project_procedure_ms.project
         where id = #{id}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="ProjectMap">
-        select
-          id, cli_id, name, setup_time, intro, state
+        select id,
+               cli_id,
+               name,
+               setup_time,
+               intro,
+               state
         from project_procedure_ms.project
         limit #{offset}, #{limit}
     </select>
@@ -30,7 +38,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" parameterType="top.xchuiao.projectprocedurems.entity.Project" resultMap="ProjectMap">
         select
-          id, cli_id, name, setup_time, intro, state
+        id, cli_id, name, setup_time, intro, state
         from project_procedure_ms.project
         <where>
             <if test="id != null and id != ''">
@@ -54,12 +62,15 @@
         </where>
     </select>
 
-     <select id="queryAll" parameterType="java.util.List" resultMap="ProjectMap">
+    <select id="queryAllByProIds" resultMap="ProjectMap">
         select
-          id, cli_id, name, setup_time, intro, state
+        id, cli_id, name, setup_time, intro, state
         from project_procedure_ms.project
         <where>
-            id in #{pro_ids}
+            id in
+            <foreach collection="list" item="pro_id" open="(" separator="," close=")">
+                #{pro_id}
+            </foreach>
         </where>
     </select>
 
@@ -94,7 +105,9 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from project_procedure_ms.project where id = #{id}
+        delete
+        from project_procedure_ms.project
+        where id = #{id}
     </delete>
 
 </mapper>

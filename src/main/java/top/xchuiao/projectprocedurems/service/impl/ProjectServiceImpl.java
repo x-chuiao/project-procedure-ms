@@ -36,8 +36,8 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<Project> queryAll(List<String> pro_id) {
-        return null;
+    public List<Project> queryAll(List<String> pro_ids) {
+        return this.projectDao.queryAllByProIds(pro_ids);
     }
 
 
