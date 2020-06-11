@@ -8,17 +8,17 @@ import java.util.List;
  * (Staff)表数据库访问层
  *
  * @author makejava
- * @since 2020-06-06 17:59:58
+ * @since 2020-06-11 19:04:21
  */
 public interface StaffDao {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 实例对象
      */
-    Staff queryById(String id);
+    Staff queryById( );
 
     /**
      * 查询指定行数据
@@ -36,7 +36,7 @@ public interface StaffDao {
      * @param staff 实例对象
      * @return 对象列表
      */
-    List<Staff> queryAllByStaff(Staff staff);
+    List<Staff> queryAll(Staff staff);
 
     /**
      * 新增数据
@@ -57,10 +57,9 @@ public interface StaffDao {
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 影响行数
      */
-    int deleteById(String id);
+    int deleteById( );
 
-    List<Staff> queryAll();
 }

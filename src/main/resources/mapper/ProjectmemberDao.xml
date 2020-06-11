@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.xchuiao.projectprocedurems.dao.ProjectmemberDao">
+<mapper namespace="com.xchuiao.projectprocedurems.dao.ProjectmemberDao">
 
-    <resultMap type="top.xchuiao.projectprocedurems.entity.Projectmember" id="ProjectmemberMap">
-        <result property="proId" column="pro_id" jdbcType="VARCHAR"/>
-        <result property="id" column="id" jdbcType="VARCHAR"/>
+    <resultMap type="com.xchuiao.projectprocedurems.entity.Projectmember" id="ProjectmemberMap">
+        <result property="proId" column="pro_id" jdbcType="INTEGER"/>
+        <result property="staId" column="sta_id" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="ProjectmemberMap">
         select
-          pro_id, id
+          pro_id, sta_id
         from project_procedure_ms.projectmember
         where pro_id = #{proId}
     </select>
@@ -18,38 +18,30 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="ProjectmemberMap">
         select
-          pro_id, id
+          pro_id, sta_id
         from project_procedure_ms.projectmember
         limit #{offset}, #{limit}
-    </select>
-
-    <select id="queryAllPmember" resultMap="ProjectmemberMap">
-        select
-        pro_id,id
-        from projectmember join staff
-        using (id)
-        WHERE staff.dep_id=#{depId}
     </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="ProjectmemberMap">
         select
-          pro_id, id
+          pro_id, sta_id
         from project_procedure_ms.projectmember
         <where>
-            <if test="proId != null and proId != ''">
+            <if test="proId != null">
                 and pro_id = #{proId}
             </if>
-            <if test="id != null and id != ''">
-                and id = #{id}
+            <if test="staId != null">
+                and sta_id = #{staId}
             </if>
         </where>
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" >
-        insert into project_procedure_ms.projectmember(pro_id,id)
-        values (#{proId},#{id})
+    <insert id="insert" keyProperty="proId" useGeneratedKeys="true">
+        insert into project_procedure_ms.projectmember()
+        values ()
     </insert>
 
     <!--通过主键修改数据-->
@@ -62,7 +54,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from project_procedure_ms.projectmember where pro_id = #{proId} and id=#{id}
+        delete from project_procedure_ms.projectmember where pro_id = #{proId}
     </delete>
 
 </mapper>

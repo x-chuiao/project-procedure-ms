@@ -8,7 +8,7 @@ import java.util.List;
  * (Projectmember)表数据库访问层
  *
  * @author makejava
- * @since 2020-06-06 17:59:57
+ * @since 2020-06-11 19:04:18
  */
 public interface ProjectmemberDao {
 
@@ -18,8 +18,8 @@ public interface ProjectmemberDao {
      * @param proId 主键
      * @return 实例对象
      */
-    Projectmember queryById(String proId);
-    List<Projectmember> queryAllPmember(String depId);
+    Projectmember queryById(Long proId);
+
     /**
      * 查询指定行数据
      *
@@ -57,9 +57,9 @@ public interface ProjectmemberDao {
     /**
      * 通过主键删除数据
      *
-     * @param projectmember 主键
+     * @param proId 主键
      * @return 影响行数
      */
-    int deleteById(Projectmember projectmember);
+    int deleteById(Long proId);
 
 }

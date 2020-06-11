@@ -8,17 +8,17 @@ import java.util.List;
  * (Client)表数据库访问层
  *
  * @author makejava
- * @since 2020-06-06 17:59:47
+ * @since 2020-06-11 19:04:12
  */
 public interface ClientDao {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 实例对象
      */
-    Client queryById(String id);
+    Client queryById( );
 
     /**
      * 查询指定行数据
@@ -36,7 +36,7 @@ public interface ClientDao {
      * @param client 实例对象
      * @return 对象列表
      */
-    List<Client> queryAllByClient(Client client);
+    List<Client> queryAll(Client client);
 
     /**
      * 新增数据
@@ -57,10 +57,9 @@ public interface ClientDao {
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 影响行数
      */
-    int deleteById(String id);
+    int deleteById( );
 
-    List<Client> queryAll();
 }

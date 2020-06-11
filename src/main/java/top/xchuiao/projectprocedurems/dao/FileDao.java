@@ -2,25 +2,23 @@ package top.xchuiao.projectprocedurems.dao;
 
 import top.xchuiao.projectprocedurems.entity.File;
 import org.apache.ibatis.annotations.Param;
-import top.xchuiao.projectprocedurems.entity.Projectmember;
-
 import java.util.List;
 
 /**
  * (File)表数据库访问层
  *
  * @author makejava
- * @since 2020-06-06 17:59:55
+ * @since 2020-06-11 19:04:14
  */
 public interface FileDao {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param name 主键
+     * @param  主键
      * @return 实例对象
      */
-    File queryById(String name);
+    File queryById( );
 
     /**
      * 查询指定行数据
@@ -59,10 +57,9 @@ public interface FileDao {
     /**
      * 通过主键删除数据
      *
-     * @param name 主键
+     * @param  主键
      * @return 影响行数
      */
-    int deleteById(String name);
+    int deleteById( );
 
-    List<File> queryAllPfile(String proId);
 }

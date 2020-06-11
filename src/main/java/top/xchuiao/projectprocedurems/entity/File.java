@@ -6,50 +6,60 @@ import java.io.Serializable;
  * (File)实体类
  *
  * @author makejava
- * @since 2020-06-06 17:59:55
+ * @since 2020-06-11 19:04:14
  */
 public class File implements Serializable {
-    private static final long serialVersionUID = -43121054600511832L;
+    private static final long serialVersionUID = -77235148387666622L;
     
-    private String name;
+    private Long fileId;
     
-    private String path;
+    private Long subId;
     
-    private String id;
+    private String fileName;
     
-    private Integer type;
+    private String fileRealName;
+    
+    private Integer fileType;
 
 
-    public String getName() {
-        return name;
+    public Long getFileId() {
+        return fileId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFileId(Long fileId) {
+        this.fileId = fileId;
     }
 
-    public String getPath() {
-        return path;
+    public Long getSubId() {
+        return subId;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setSubId(Long subId) {
+        this.subId = subId;
     }
 
-    public String getId() {
-        return id;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
-    public Integer getType() {
-        return type;
+    public String getFileRealName() {
+        return fileRealName;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setFileRealName(String fileRealName) {
+        this.fileRealName = fileRealName;
+    }
+
+    public Integer getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(Integer fileType) {
+        this.fileType = fileType;
     }
 
 }

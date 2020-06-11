@@ -6,30 +6,30 @@ import java.io.Serializable;
  * (Role)实体类
  *
  * @author makejava
- * @since 2020-06-06 17:59:57
+ * @since 2020-06-11 19:04:19
  */
 public class Role implements Serializable {
-    private static final long serialVersionUID = -56857165993495345L;
+    private static final long serialVersionUID = -53823150593807003L;
     
-    private String id;
+    private Integer rolId;
     
-    private String name;
+    private String rolName;
 
 
-    public String getId() {
-        return id;
+    public Integer getRolId() {
+        return rolId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setRolId(Integer rolId) {
+        this.rolId = rolId;
     }
 
-    public String getName() {
-        return name;
+    public String getRolName() {
+        return rolName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRolName(String rolName) {
+        this.rolName = rolName;
     }
 
 }

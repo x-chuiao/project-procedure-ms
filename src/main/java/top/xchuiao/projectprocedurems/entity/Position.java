@@ -6,30 +6,30 @@ import java.io.Serializable;
  * (Position)实体类
  *
  * @author makejava
- * @since 2020-06-06 17:59:56
+ * @since 2020-06-11 19:04:15
  */
 public class Position implements Serializable {
-    private static final long serialVersionUID = 218237427399744729L;
+    private static final long serialVersionUID = 444335182023863005L;
     
-    private String id;
+    private Integer posId;
     
-    private String name;
+    private String posName;
 
 
-    public String getId() {
-        return id;
+    public Integer getPosId() {
+        return posId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setPosId(Integer posId) {
+        this.posId = posId;
     }
 
-    public String getName() {
-        return name;
+    public String getPosName() {
+        return posName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPosName(String posName) {
+        this.posName = posName;
     }
 
 }

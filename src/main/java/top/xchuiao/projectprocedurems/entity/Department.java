@@ -6,30 +6,30 @@ import java.io.Serializable;
  * (Department)实体类
  *
  * @author makejava
- * @since 2020-06-06 17:59:52
+ * @since 2020-06-11 19:04:13
  */
 public class Department implements Serializable {
-    private static final long serialVersionUID = 570690262685596328L;
+    private static final long serialVersionUID = -20168968087349407L;
     
-    private String id;
+    private Integer depId;
     
-    private String name;
+    private String depName;
 
 
-    public String getId() {
-        return id;
+    public Integer getDepId() {
+        return depId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setDepId(Integer depId) {
+        this.depId = depId;
     }
 
-    public String getName() {
-        return name;
+    public String getDepName() {
+        return depName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDepName(String depName) {
+        this.depName = depName;
     }
 
 }

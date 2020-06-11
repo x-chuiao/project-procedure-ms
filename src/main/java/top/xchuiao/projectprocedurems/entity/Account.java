@@ -6,50 +6,50 @@ import java.io.Serializable;
  * (Account)实体类
  *
  * @author makejava
- * @since 2020-06-08 11:11:58
+ * @since 2020-06-11 19:04:08
  */
 public class Account implements Serializable {
-    private static final long serialVersionUID = 788316174604545700L;
+    private static final long serialVersionUID = 460828938733846501L;
     
-    private String id;
+    private Long accId;
     
-    private String rolId;
+    private Integer rolId;
     
-    private String pwd;
+    private String accPwd;
     
-    private Integer type;
+    private Integer accType;
 
 
-    public String getId() {
-        return id;
+    public Long getAccId() {
+        return accId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setAccId(Long accId) {
+        this.accId = accId;
     }
 
-    public String getRolId() {
+    public Integer getRolId() {
         return rolId;
     }
 
-    public void setRolId(String rolId) {
+    public void setRolId(Integer rolId) {
         this.rolId = rolId;
     }
 
-    public String getPwd() {
-        return pwd;
+    public String getAccPwd() {
+        return accPwd;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setAccPwd(String accPwd) {
+        this.accPwd = accPwd;
     }
 
-    public Integer getType() {
-        return type;
+    public Integer getAccType() {
+        return accType;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setAccType(Integer accType) {
+        this.accType = accType;
     }
 
 }

@@ -8,17 +8,17 @@ import java.util.List;
  * (Project)表数据库访问层
  *
  * @author makejava
- * @since 2020-06-06 17:59:56
+ * @since 2020-06-11 19:04:17
  */
 public interface ProjectDao {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 实例对象
      */
-    Project queryById(String id);
+    Project queryById( );
 
     /**
      * 查询指定行数据
@@ -37,8 +37,6 @@ public interface ProjectDao {
      * @return 对象列表
      */
     List<Project> queryAll(Project project);
-
-    List<Project> queryAllByProIds(List<String> pro_ids);
 
     /**
      * 新增数据
@@ -59,9 +57,9 @@ public interface ProjectDao {
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 影响行数
      */
-    int deleteById(String id);
+    int deleteById( );
 
 }

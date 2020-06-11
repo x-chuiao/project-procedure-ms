@@ -7,70 +7,70 @@ import java.io.Serializable;
  * (Project)实体类
  *
  * @author makejava
- * @since 2020-06-06 17:59:56
+ * @since 2020-06-11 19:04:17
  */
 public class Project implements Serializable {
-    private static final long serialVersionUID = 247394473062515071L;
+    private static final long serialVersionUID = -18009319015942697L;
     
-    private String id;
+    private Long proId;
     
-    private String cliId;
+    private Long cliId;
     
-    private String name;
+    private String proName;
     
-    private Date setupTime;
+    private Date proSetupTime;
     
-    private String intro;
+    private String proIntro;
     
-    private Integer state;
+    private Integer proState;
 
 
-    public String getId() {
-        return id;
+    public Long getProId() {
+        return proId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setProId(Long proId) {
+        this.proId = proId;
     }
 
-    public String getCliId() {
+    public Long getCliId() {
         return cliId;
     }
 
-    public void setCliId(String cliId) {
+    public void setCliId(Long cliId) {
         this.cliId = cliId;
     }
 
-    public String getName() {
-        return name;
+    public String getProName() {
+        return proName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProName(String proName) {
+        this.proName = proName;
     }
 
-    public Date getSetupTime() {
-        return setupTime;
+    public Date getProSetupTime() {
+        return proSetupTime;
     }
 
-    public void setSetupTime(Date setupTime) {
-        this.setupTime = setupTime;
+    public void setProSetupTime(Date proSetupTime) {
+        this.proSetupTime = proSetupTime;
     }
 
-    public String getIntro() {
-        return intro;
+    public String getProIntro() {
+        return proIntro;
     }
 
-    public void setIntro(String intro) {
-        this.intro = intro;
+    public void setProIntro(String proIntro) {
+        this.proIntro = proIntro;
     }
 
-    public Integer getState() {
-        return state;
+    public Integer getProState() {
+        return proState;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
+    public void setProState(Integer proState) {
+        this.proState = proState;
     }
 
 }

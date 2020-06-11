@@ -8,17 +8,17 @@ import java.util.List;
  * (Role)表数据库访问层
  *
  * @author makejava
- * @since 2020-06-06 17:59:57
+ * @since 2020-06-11 19:04:19
  */
 public interface RoleDao {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 实例对象
      */
-    Role queryById(String id);
+    Role queryById( );
 
     /**
      * 查询指定行数据
@@ -57,9 +57,9 @@ public interface RoleDao {
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 影响行数
      */
-    int deleteById(String id);
+    int deleteById( );
 
 }

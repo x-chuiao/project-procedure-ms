@@ -3,19 +3,19 @@ package top.xchuiao.projectprocedurems.entity;
 import java.io.Serializable;
 
 /**
- * (Staff)实体类
+ * (Staffinfo)实体类
  *
  * @author makejava
- * @since 2020-06-11 19:04:20
+ * @since 2020-06-11 19:05:38
  */
-public class Staff implements Serializable {
-    private static final long serialVersionUID = 388952053856051801L;
+public class Staffinfo implements Serializable {
+    private static final long serialVersionUID = -40698979180343358L;
     
-    private Long staId;
+    private Integer depId;
     
     private Integer posId;
     
-    private Integer depId;
+    private Long staId;
     
     private Long accId;
     
@@ -26,14 +26,18 @@ public class Staff implements Serializable {
     private Integer staSex;
     
     private String staContact;
+    
+    private String posName;
+    
+    private String depName;
 
 
-    public Long getStaId() {
-        return staId;
+    public Integer getDepId() {
+        return depId;
     }
 
-    public void setStaId(Long staId) {
-        this.staId = staId;
+    public void setDepId(Integer depId) {
+        this.depId = depId;
     }
 
     public Integer getPosId() {
@@ -44,12 +48,12 @@ public class Staff implements Serializable {
         this.posId = posId;
     }
 
-    public Integer getDepId() {
-        return depId;
+    public Long getStaId() {
+        return staId;
     }
 
-    public void setDepId(Integer depId) {
-        this.depId = depId;
+    public void setStaId(Long staId) {
+        this.staId = staId;
     }
 
     public Long getAccId() {
@@ -90,6 +94,22 @@ public class Staff implements Serializable {
 
     public void setStaContact(String staContact) {
         this.staContact = staContact;
+    }
+
+    public String getPosName() {
+        return posName;
+    }
+
+    public void setPosName(String posName) {
+        this.posName = posName;
+    }
+
+    public String getDepName() {
+        return depName;
+    }
+
+    public void setDepName(String depName) {
+        this.depName = depName;
     }
 
 }

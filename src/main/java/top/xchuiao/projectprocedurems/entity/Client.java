@@ -6,60 +6,60 @@ import java.io.Serializable;
  * (Client)实体类
  *
  * @author makejava
- * @since 2020-06-06 17:59:47
+ * @since 2020-06-11 19:04:12
  */
 public class Client implements Serializable {
-    private static final long serialVersionUID = 561645970667430819L;
+    private static final long serialVersionUID = 703709083447639711L;
     
-    private String id;
+    private Long cliId;
     
-    private String accId;
+    private Long accId;
     
-    private String name;
+    private String cliName;
     
-    private String sex;
+    private Integer cliSex;
     
-    private String contact;
+    private String cliContact;
 
 
-    public String getId() {
-        return id;
+    public Long getCliId() {
+        return cliId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCliId(Long cliId) {
+        this.cliId = cliId;
     }
 
-    public String getAccId() {
+    public Long getAccId() {
         return accId;
     }
 
-    public void setAccId(String accId) {
+    public void setAccId(Long accId) {
         this.accId = accId;
     }
 
-    public String getName() {
-        return name;
+    public String getCliName() {
+        return cliName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCliName(String cliName) {
+        this.cliName = cliName;
     }
 
-    public String getSex() {
-        return sex;
+    public Integer getCliSex() {
+        return cliSex;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setCliSex(Integer cliSex) {
+        this.cliSex = cliSex;
     }
 
-    public String getContact() {
-        return contact;
+    public String getCliContact() {
+        return cliContact;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setCliContact(String cliContact) {
+        this.cliContact = cliContact;
     }
 
 }

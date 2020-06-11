@@ -1,111 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.xchuiao.projectprocedurems.dao.StaffDao">
+<mapper namespace="com.xchuiao.projectprocedurems.dao.StaffDao">
 
-    <resultMap type="top.xchuiao.projectprocedurems.entity.Staff" id="StaffMap">
-        <result property="id" column="id" jdbcType="VARCHAR"/>
-        <result property="posId" column="pos_id" jdbcType="VARCHAR"/>
-        <result property="depId" column="dep_id" jdbcType="VARCHAR"/>
-        <result property="accId" column="acc_id" jdbcType="VARCHAR"/>
-        <result property="name" column="name" jdbcType="VARCHAR"/>
-        <result property="age" column="age" jdbcType="INTEGER"/>
-        <result property="sex" column="sex" jdbcType="VARCHAR"/>
-        <result property="contact" column="contact" jdbcType="VARCHAR"/>
+    <resultMap type="com.xchuiao.projectprocedurems.entity.Staff" id="StaffMap">
+        <result property="staId" column="sta_id" jdbcType="INTEGER"/>
+        <result property="posId" column="pos_id" jdbcType="INTEGER"/>
+        <result property="depId" column="dep_id" jdbcType="INTEGER"/>
+        <result property="accId" column="acc_id" jdbcType="INTEGER"/>
+        <result property="staName" column="sta_name" jdbcType="VARCHAR"/>
+        <result property="staAge" column="sta_age" jdbcType="INTEGER"/>
+        <result property="staSex" column="sta_sex" jdbcType="INTEGER"/>
+        <result property="staContact" column="sta_contact" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="StaffMap">
         select
-          id, pos_id, dep_id, acc_id, name, age, sex, contact
+          sta_id, pos_id, dep_id, acc_id, sta_name, sta_age, sta_sex, sta_contact
         from project_procedure_ms.staff
-        where id = #{id}
+        where  = #{}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="StaffMap">
         select
-          id, pos_id, dep_id, acc_id, name, age, sex, contact
+          sta_id, pos_id, dep_id, acc_id, sta_name, sta_age, sta_sex, sta_contact
         from project_procedure_ms.staff
         limit #{offset}, #{limit}
     </select>
 
     <!--通过实体作为筛选条件查询-->
-    <select id="queryAllByStaff" resultMap="StaffMap">
+    <select id="queryAll" resultMap="StaffMap">
         select
-          id, pos_id, dep_id, acc_id, name, age, sex, contact
+          sta_id, pos_id, dep_id, acc_id, sta_name, sta_age, sta_sex, sta_contact
         from project_procedure_ms.staff
         <where>
-            <if test="id != null and id != ''">
-                and id = #{id}
+            <if test="staId != null">
+                and sta_id = #{staId}
             </if>
-            <if test="accId != null and accId != ''">
-                and acc_id = #{accId}
-            </if>
-            <if test="name != null and name != ''">
-                and name = #{name}
-            </if>
-            <if test="sex != null and sex != ''">
-                and sex = #{sex}
-            </if>
-            <if test="contact != null and contact!= ''">
-                and contact = #{contact}
-            </if>
-            <if test="posId != null and posId!= ''">
+            <if test="posId != null">
                 and pos_id = #{posId}
             </if>
-            <if test="depId != null and depId!= ''">
+            <if test="depId != null">
                 and dep_id = #{depId}
             </if>
-            <if test="age != null and age!= ''">
-                and age = #{age}
+            <if test="accId != null">
+                and acc_id = #{accId}
+            </if>
+            <if test="staName != null and staName != ''">
+                and sta_name = #{staName}
+            </if>
+            <if test="staAge != null">
+                and sta_age = #{staAge}
+            </if>
+            <if test="staSex != null">
+                and sta_sex = #{staSex}
+            </if>
+            <if test="staContact != null and staContact != ''">
+                and sta_contact = #{staContact}
             </if>
         </where>
     </select>
 
-    <select id="queryAll" resultMap="StaffMap">
-        select
-          id, pos_id, dep_id, acc_id, name, age, sex, contact
-        from project_procedure_ms.staff
-    </select>
-
     <!--新增所有列-->
-    <insert id="insert" keyProperty="id" >
-        insert into project_procedure_ms.staff(id,pos_id, dep_id, acc_id, name, age, sex, contact)
-        values (#{id},#{posId}, #{depId}, #{accId}, #{name}, #{age}, #{sex}, #{contact})
+    <insert id="insert" keyProperty="" useGeneratedKeys="true">
+        insert into project_procedure_ms.staff(pos_id, dep_id, acc_id)
+        values (#{posId}, #{depId}, #{accId})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
         update project_procedure_ms.staff
         <set>
-            <if test="posId != null and posId != ''">
+            <if test="posId != null">
                 pos_id = #{posId},
             </if>
-            <if test="depId != null and depId != ''">
+            <if test="depId != null">
                 dep_id = #{depId},
             </if>
-            <if test="accId != null and accId != ''">
+            <if test="accId != null">
                 acc_id = #{accId},
             </if>
-            <if test="name != null and name != ''">
-                name = #{name},
-            </if>
-            <if test="age != null">
-                age = #{age},
-            </if>
-            <if test="sex != null and sex != ''">
-                sex = #{sex},
-            </if>
-            <if test="contact != null and contact != ''">
-                contact = #{contact},
-            </if>
         </set>
-        where id = #{id}
+        where  = #{}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from project_procedure_ms.staff where id = #{id}
+        delete from project_procedure_ms.staff where  = #{}
     </delete>
 
 </mapper>

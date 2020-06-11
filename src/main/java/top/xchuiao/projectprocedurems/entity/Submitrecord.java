@@ -7,18 +7,18 @@ import java.io.Serializable;
  * (Submitrecord)实体类
  *
  * @author makejava
- * @since 2020-06-06 17:59:59
+ * @since 2020-06-11 19:04:21
  */
 public class Submitrecord implements Serializable {
-    private static final long serialVersionUID = 251761078072839341L;
+    private static final long serialVersionUID = 231364086486479959L;
     
-    private String proId;
+    private Long subId;
     
-    private String staId;
+    private Long proId;
     
-    private String id;
+    private Long staId;
     
-    private String intro;
+    private String subIntro;
     
     private Date submitTime;
     
@@ -29,36 +29,36 @@ public class Submitrecord implements Serializable {
     private String clientComment;
 
 
-    public String getProId() {
+    public Long getSubId() {
+        return subId;
+    }
+
+    public void setSubId(Long subId) {
+        this.subId = subId;
+    }
+
+    public Long getProId() {
         return proId;
     }
 
-    public void setProId(String proId) {
+    public void setProId(Long proId) {
         this.proId = proId;
     }
 
-    public String getStaId() {
+    public Long getStaId() {
         return staId;
     }
 
-    public void setStaId(String staId) {
+    public void setStaId(Long staId) {
         this.staId = staId;
     }
 
-    public String getId() {
-        return id;
+    public String getSubIntro() {
+        return subIntro;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getIntro() {
-        return intro;
-    }
-
-    public void setIntro(String intro) {
-        this.intro = intro;
+    public void setSubIntro(String subIntro) {
+        this.subIntro = subIntro;
     }
 
     public Date getSubmitTime() {

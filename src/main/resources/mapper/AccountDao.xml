@@ -3,23 +3,24 @@
 <mapper namespace="top.xchuiao.projectprocedurems.dao.AccountDao">
 
     <resultMap type="top.xchuiao.projectprocedurems.entity.Account" id="AccountMap">
-        <result property="id" column="id" jdbcType="VARCHAR"/>
-        <result property="rolId" column="rol_id" jdbcType="VARCHAR"/>
-        <result property="pwd" column="pwd" jdbcType="VARCHAR"/>
+        <result property="accId" column="acc_id" jdbcType="INTEGER"/>
+        <result property="rolId" column="rol_id" jdbcType="INTEGER"/>
+        <result property="accPwd" column="acc_pwd" jdbcType="VARCHAR"/>
+        <result property="accType" column="acc_type" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="AccountMap">
         select
-          id, rol_id, pwd
+          acc_id, rol_id, acc_pwd, acc_type
         from project_procedure_ms.account
-        where id = #{id}
+        where acc_id = #{accId}
     </select>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="AccountMap">
         select
-          id, rol_id, pwd
+          acc_id, rol_id, acc_pwd, acc_type
         from project_procedure_ms.account
         limit #{offset}, #{limit}
     </select>
@@ -27,33 +28,50 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="AccountMap">
         select
-          id, rol_id, pwd
+          acc_id, rol_id, acc_pwd, acc_type
         from project_procedure_ms.account
+        <where>
+            <if test="accId != null">
+                and acc_id = #{accId}
+            </if>
+            <if test="rolId != null">
+                and rol_id = #{rolId}
+            </if>
+            <if test="accPwd != null and accPwd != ''">
+                and acc_pwd = #{accPwd}
+            </if>
+            <if test="accType != null">
+                and acc_type = #{accType}
+            </if>
+        </where>
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="id" >
-        insert into project_procedure_ms.account(id,rol_id, pwd)
-        values (#{id},#{rolId}, #{pwd})
+    <insert id="insert" keyProperty="accId" useGeneratedKeys="true">
+        insert into project_procedure_ms.account(rol_id, acc_pwd, acc_type)
+        values (#{rolId}, #{accPwd}, #{accType})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
         update project_procedure_ms.account
         <set>
-            <if test="rolId != null and rolId != ''">
+            <if test="rolId != null">
                 rol_id = #{rolId},
             </if>
-            <if test="pwd != null and pwd != ''">
-                pwd = #{pwd},
+            <if test="accPwd != null and accPwd != ''">
+                acc_pwd = #{accPwd},
+            </if>
+            <if test="accType != null">
+                acc_type = #{accType},
             </if>
         </set>
-        where id = #{id}
+        where acc_id = #{accId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from project_procedure_ms.account where id = #{id}
+        delete from project_procedure_ms.account where acc_id = #{accId}
     </delete>
 
 </mapper>
