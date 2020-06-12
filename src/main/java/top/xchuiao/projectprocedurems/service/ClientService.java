@@ -7,19 +7,18 @@ import java.util.List;
  * (Client)表服务接口
  *
  * @author makejava
- * @since 2020-06-06 17:59:47
+ * @since 2020-06-12 17:32:32
  */
 public interface ClientService {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param cliId 主键
      * @return 实例对象
      */
-    Client queryById(String id);
-    List<Client> queryAll();
-    List<Client> queryAll(Client client);
+    Client queryById(Long cliId);
+
     /**
      * 查询多条数据
      *
@@ -48,9 +47,9 @@ public interface ClientService {
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param cliId 主键
      * @return 是否成功
      */
-    boolean deleteById(String id);
+    boolean deleteById(Long cliId);
 
 }

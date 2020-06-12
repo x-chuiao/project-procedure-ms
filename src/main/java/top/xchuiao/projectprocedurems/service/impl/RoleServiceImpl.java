@@ -12,7 +12,7 @@ import java.util.List;
  * (Role)表服务实现类
  *
  * @author makejava
- * @since 2020-06-06 17:59:57
+ * @since 2020-06-12 17:32:32
  */
 @Service("roleService")
 public class RoleServiceImpl implements RoleService {
@@ -22,12 +22,12 @@ public class RoleServiceImpl implements RoleService {
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 实例对象
      */
     @Override
-    public Role queryById(String id) {
-        return this.roleDao.queryById(id);
+    public Role queryById( ) {
+        return this.roleDao.queryById();
     }
 
     /**
@@ -63,17 +63,17 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Role update(Role role) {
         this.roleDao.update(role);
-        return this.queryById(role.getId());
+        return this.queryById(role.get());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(String id) {
-        return this.roleDao.deleteById(id) > 0;
+    public boolean deleteById( ) {
+        return this.roleDao.deleteById() > 0;
     }
 }

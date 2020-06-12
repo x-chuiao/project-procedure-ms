@@ -12,7 +12,7 @@ import java.util.List;
  * (Projectmember)表服务实现类
  *
  * @author makejava
- * @since 2020-06-06 17:59:57
+ * @since 2020-06-12 17:32:32
  */
 @Service("projectmemberService")
 public class ProjectmemberServiceImpl implements ProjectmemberService {
@@ -26,18 +26,8 @@ public class ProjectmemberServiceImpl implements ProjectmemberService {
      * @return 实例对象
      */
     @Override
-    public Projectmember queryById(String proId) {
+    public Projectmember queryById(Long proId) {
         return this.projectmemberDao.queryById(proId);
-    }
-
-    @Override
-    public  List<Projectmember> queryAllPmember(String depId){
-        return this.projectmemberDao.queryAllPmember(depId);
-    }
-
-    @Override
-    public List<Projectmember> queryAll(Projectmember projectmember) {
-        return this.projectmemberDao.queryAll(projectmember);
     }
 
     /**
@@ -76,8 +66,14 @@ public class ProjectmemberServiceImpl implements ProjectmemberService {
         return this.queryById(projectmember.getProId());
     }
 
+    /**
+     * 通过主键删除数据
+     *
+     * @param proId 主键
+     * @return 是否成功
+     */
     @Override
-    public boolean deleteById(Projectmember projectmember) {
-        return this.projectmemberDao.deleteById(projectmember) > 0;
+    public boolean deleteById(Long proId) {
+        return this.projectmemberDao.deleteById(proId) > 0;
     }
 }

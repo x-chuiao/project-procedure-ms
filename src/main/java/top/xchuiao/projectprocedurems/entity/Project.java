@@ -7,10 +7,10 @@ import java.io.Serializable;
  * (Project)实体类
  *
  * @author makejava
- * @since 2020-06-11 19:04:17
+ * @since 2020-06-12 17:32:33
  */
 public class Project implements Serializable {
-    private static final long serialVersionUID = -18009319015942697L;
+    private static final long serialVersionUID = 138729168485669599L;
     
     private Long proId;
     

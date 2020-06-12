@@ -12,7 +12,7 @@ import java.util.List;
  * (Submitrecord)表服务实现类
  *
  * @author makejava
- * @since 2020-06-06 17:59:59
+ * @since 2020-06-12 17:32:33
  */
 @Service("submitrecordService")
 public class SubmitrecordServiceImpl implements SubmitrecordService {
@@ -22,17 +22,12 @@ public class SubmitrecordServiceImpl implements SubmitrecordService {
     /**
      * 通过ID查询单条数据
      *
-     * @param proId 主键
+     * @param  主键
      * @return 实例对象
      */
     @Override
-    public Submitrecord queryById(String proId) {
-        return this.submitrecordDao.queryById(proId);
-    }
-
-    @Override
-    public List<Submitrecord> queryByStaId(String staId) {
-        return this.submitrecordDao.queryByStaId(staId);
+    public Submitrecord queryById( ) {
+        return this.submitrecordDao.queryById();
     }
 
     /**
@@ -47,10 +42,6 @@ public class SubmitrecordServiceImpl implements SubmitrecordService {
         return this.submitrecordDao.queryAllByLimit(offset, limit);
     }
 
-    @Override
-    public List<Submitrecord> queryByDaudit(int directorAudit) {
-        return this.submitrecordDao.queryByDaudit(directorAudit);
-    }
     /**
      * 新增数据
      *
@@ -72,17 +63,17 @@ public class SubmitrecordServiceImpl implements SubmitrecordService {
     @Override
     public Submitrecord update(Submitrecord submitrecord) {
         this.submitrecordDao.update(submitrecord);
-        return this.queryById(submitrecord.getProId());
+        return this.queryById(submitrecord.get());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param proId 主键
+     * @param  主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(String proId) {
-        return this.submitrecordDao.deleteById(proId) > 0;
+    public boolean deleteById( ) {
+        return this.submitrecordDao.deleteById() > 0;
     }
 }

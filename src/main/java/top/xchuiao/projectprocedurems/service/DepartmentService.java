@@ -7,18 +7,17 @@ import java.util.List;
  * (Department)表服务接口
  *
  * @author makejava
- * @since 2020-06-06 17:59:53
+ * @since 2020-06-12 17:32:32
  */
 public interface DepartmentService {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 实例对象
      */
-    Department queryById(String id);
-    List<Department> queryAll();
+    Department queryById( );
 
     /**
      * 查询多条数据
@@ -48,9 +47,9 @@ public interface DepartmentService {
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 是否成功
      */
-    boolean deleteById(String id);
+    boolean deleteById( );
 
 }

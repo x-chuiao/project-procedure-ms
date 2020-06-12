@@ -7,18 +7,18 @@ import java.util.List;
  * (Submitrecord)表服务接口
  *
  * @author makejava
- * @since 2020-06-06 17:59:59
+ * @since 2020-06-12 17:32:33
  */
 public interface SubmitrecordService {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param proId 主键
+     * @param  主键
      * @return 实例对象
      */
-    Submitrecord queryById(String proId);
-    List<Submitrecord> queryByStaId(String staId);
+    Submitrecord queryById( );
+
     /**
      * 查询多条数据
      *
@@ -27,7 +27,7 @@ public interface SubmitrecordService {
      * @return 对象列表
      */
     List<Submitrecord> queryAllByLimit(int offset, int limit);
-    List<Submitrecord> queryByDaudit(int directorAudit);
+
     /**
      * 新增数据
      *
@@ -47,9 +47,9 @@ public interface SubmitrecordService {
     /**
      * 通过主键删除数据
      *
-     * @param proId 主键
+     * @param  主键
      * @return 是否成功
      */
-    boolean deleteById(String proId);
+    boolean deleteById( );
 
 }

@@ -1,26 +1,23 @@
 package top.xchuiao.projectprocedurems.service;
 
 import top.xchuiao.projectprocedurems.entity.Account;
-
 import java.util.List;
 
 /**
  * (Account)表服务接口
  *
  * @author makejava
- * @since 2020-06-06 17:59:52
+ * @since 2020-06-12 17:32:26
  */
 public interface AccountService {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param accId 主键
      * @return 实例对象
      */
-    Account queryById(String id);
-
-    List<Account> queryAll();
+    Account queryById(Long accId);
 
     /**
      * 查询多条数据
@@ -50,11 +47,9 @@ public interface AccountService {
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param accId 主键
      * @return 是否成功
      */
-    boolean deleteById(String id);
-    Object getAccountUser(String id);
-    int getAccountType(String id);
+    boolean deleteById(Long accId);
 
 }

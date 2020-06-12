@@ -7,10 +7,10 @@ import java.io.Serializable;
  * (Submitrecord)实体类
  *
  * @author makejava
- * @since 2020-06-11 19:04:21
+ * @since 2020-06-12 17:32:33
  */
 public class Submitrecord implements Serializable {
-    private static final long serialVersionUID = 231364086486479959L;
+    private static final long serialVersionUID = -52796326565068481L;
     
     private Long subId;
     

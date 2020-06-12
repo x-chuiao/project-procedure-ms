@@ -6,10 +6,10 @@ import java.io.Serializable;
  * (Department)实体类
  *
  * @author makejava
- * @since 2020-06-11 19:04:13
+ * @since 2020-06-12 17:32:32
  */
 public class Department implements Serializable {
-    private static final long serialVersionUID = -20168968087349407L;
+    private static final long serialVersionUID = 625531933752811416L;
     
     private Integer depId;
     

@@ -6,10 +6,10 @@ import java.io.Serializable;
  * (File)实体类
  *
  * @author makejava
- * @since 2020-06-11 19:04:14
+ * @since 2020-06-12 17:32:32
  */
 public class File implements Serializable {
-    private static final long serialVersionUID = -77235148387666622L;
+    private static final long serialVersionUID = -14913240884356044L;
     
     private Long fileId;
     

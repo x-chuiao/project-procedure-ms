@@ -8,7 +8,7 @@ import java.util.List;
  * (Submitrecord)表数据库访问层
  *
  * @author makejava
- * @since 2020-06-11 19:04:22
+ * @since 2020-06-12 17:32:33
  */
 public interface SubmitrecordDao {
 

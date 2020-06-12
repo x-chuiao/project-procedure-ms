@@ -7,7 +7,7 @@ import java.util.List;
  * (Projectmember)表服务接口
  *
  * @author makejava
- * @since 2020-06-06 17:59:57
+ * @since 2020-06-12 17:32:32
  */
 public interface ProjectmemberService {
 
@@ -17,11 +17,7 @@ public interface ProjectmemberService {
      * @param proId 主键
      * @return 实例对象
      */
-    Projectmember queryById(String proId);
-
-    List<Projectmember> queryAllPmember(String depId);
-
-    List<Projectmember> queryAll(Projectmember projectmember);
+    Projectmember queryById(Long proId);
 
     /**
      * 查询多条数据
@@ -51,10 +47,9 @@ public interface ProjectmemberService {
     /**
      * 通过主键删除数据
      *
-     * @param projectmember 主键
+     * @param proId 主键
      * @return 是否成功
      */
-    boolean deleteById(Projectmember projectmember);
-
+    boolean deleteById(Long proId);
 
 }

@@ -6,10 +6,10 @@ import java.io.Serializable;
  * (Projectmember)实体类
  *
  * @author makejava
- * @since 2020-06-11 19:04:18
+ * @since 2020-06-12 17:32:32
  */
 public class Projectmember implements Serializable {
-    private static final long serialVersionUID = -43591811670670578L;
+    private static final long serialVersionUID = -38505879819946603L;
     
     private Long proId;
     

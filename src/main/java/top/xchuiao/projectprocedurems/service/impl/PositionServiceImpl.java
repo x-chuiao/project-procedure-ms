@@ -12,7 +12,7 @@ import java.util.List;
  * (Position)表服务实现类
  *
  * @author makejava
- * @since 2020-06-06 17:59:56
+ * @since 2020-06-12 17:32:32
  */
 @Service("positionService")
 public class PositionServiceImpl implements PositionService {
@@ -22,24 +22,19 @@ public class PositionServiceImpl implements PositionService {
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 实例对象
      */
     @Override
-    public Position queryById(String id) {
-        return this.positionDao.queryById(id);
-    }
-
-    @Override
-    public List<Position> queryAll() {
-        return this.positionDao.queryAll();
+    public Position queryById( ) {
+        return this.positionDao.queryById();
     }
 
     /**
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit  查询条数
+     * @param limit 查询条数
      * @return 对象列表
      */
     @Override
@@ -55,11 +50,7 @@ public class PositionServiceImpl implements PositionService {
      */
     @Override
     public Position insert(Position position) {
-        try {
-            this.positionDao.insert(position);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.positionDao.insert(position);
         return position;
     }
 
@@ -72,17 +63,17 @@ public class PositionServiceImpl implements PositionService {
     @Override
     public Position update(Position position) {
         this.positionDao.update(position);
-        return this.queryById(position.getId());
+        return this.queryById(position.get());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(String id) {
-        return this.positionDao.deleteById(id) > 0;
+    public boolean deleteById( ) {
+        return this.positionDao.deleteById() > 0;
     }
 }

@@ -6,10 +6,10 @@ import java.io.Serializable;
  * (Client)实体类
  *
  * @author makejava
- * @since 2020-06-11 19:04:12
+ * @since 2020-06-12 17:32:32
  */
 public class Client implements Serializable {
-    private static final long serialVersionUID = 703709083447639711L;
+    private static final long serialVersionUID = -24486949632656598L;
     
     private Long cliId;
     

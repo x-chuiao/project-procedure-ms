@@ -39,7 +39,7 @@ public class AccountController {
     public Responce login(String id, String pwd) {
         Responce responce = new Responce();
         Account account = this.accountService.queryById(id);
-        if (account == null || !account.getPwd().equals(pwd) ){
+        if (account == null || !account.getAccPwd().equals(pwd) ){
             responce.code = "10001";
             responce.msg = "账密错误";
         } else
@@ -57,12 +57,12 @@ public class AccountController {
     public Responce modAccount(@RequestParam Map<String,Object> data)
     {
         Responce responce=Responce.getInstance();
-        Account account = this.accountService.queryById((String)data.get("id"));
+        Account account = this.accountService.queryById((Long)data.get("id"));
         if (account == null || !account.getPwd().equals((String)data.get("org_pwd"))) {
             responce.code = "10001";
             responce.msg = "密码错误";
         } else
-        this.accountService.update(new Account(){{setId((String)data.get("id"));setPwd((String)data.get("new_pwd"));}});
+        this.accountService.update(new Account(){{setAccId((Long)data.get("id"));setPwd((String)data.get("new_pwd"));}});
         return responce;
     }
 
@@ -76,41 +76,31 @@ public class AccountController {
     }
 
     @PostMapping("/basic-info")
-    public Responce ModBasicInfo(@RequestParam Map<String, Object> info) {
+    public Responce ModBasicInfo(@RequestParam Map<String, Object> data) {
         Responce responce=new Responce();
-        int type=accountService.getAccountType((String)info.get("acc_id"));
+        int type= (int) data.get("acc_type");
         if(type==1)
         {
-            Staff staff=util.mapToBean(info,Staff.class);
-            this.staffService.update(staff);
-            responce.data=staff;
+
         }
         else if(type==2)
         {
-            Client client=util.mapToBean(info,Client.class);
-            this.clientService.update(client);
-            responce.data=client;
-        }
-        else
-        {
-            responce.code="10001";
-            responce.msg="不存在";
+
         }
         return responce;
     }
 
     @GetMapping("/basic-info")
-    public Responce getBasicInfo(@RequestParam(name = "id") String id) {
+    public Responce getBasicInfo(@RequestParam Account account) {
         Responce responce = new Responce();
-        Object o=accountService.getAccountUser(id);
-        if(o==null)
+        int type=account.getAccType();
+        if(type==1)
         {
-            responce.code="10001";
-            responce.msg="不存在此用户";
+
         }
-        else
+        else if(type==2)
         {
-            responce.data=o;
+
         }
         return responce;
     }

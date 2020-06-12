@@ -12,7 +12,7 @@ import java.util.List;
  * (Client)表服务实现类
  *
  * @author makejava
- * @since 2020-06-06 17:59:47
+ * @since 2020-06-12 17:32:32
  */
 @Service("clientService")
 public class ClientServiceImpl implements ClientService {
@@ -22,19 +22,12 @@ public class ClientServiceImpl implements ClientService {
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param cliId 主键
      * @return 实例对象
      */
     @Override
-    public Client queryById(String id) {
-        return this.clientDao.queryById(id);
-    }
-    @Override
-    public List<Client> queryAll() { return this.clientDao.queryAll(); }
-
-    @Override
-    public List<Client> queryAll(Client client) {
-        return this.clientDao.queryAllByClient(client);
+    public Client queryById(Long cliId) {
+        return this.clientDao.queryById(cliId);
     }
 
     /**
@@ -70,17 +63,17 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Client update(Client client) {
         this.clientDao.update(client);
-        return this.queryById(client.getId());
+        return this.queryById(client.getCliId());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param cliId 主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(String id) {
-        return this.clientDao.deleteById(id) > 0;
+    public boolean deleteById(Long cliId) {
+        return this.clientDao.deleteById(cliId) > 0;
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
  * (Staff)表服务实现类
  *
  * @author makejava
- * @since 2020-06-06 17:59:58
+ * @since 2020-06-12 17:32:32
  */
 @Service("staffService")
 public class StaffServiceImpl implements StaffService {
@@ -22,22 +22,12 @@ public class StaffServiceImpl implements StaffService {
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 实例对象
      */
     @Override
-    public Staff queryById(String id) {
-        return this.staffDao.queryById(id);
-    }
-
-    @Override
-    public List<Staff> queryAll() {
-       return this.staffDao.queryAll();
-    }
-
-    @Override
-    public List<Staff> queryAll(Staff staff) {
-        return this.staffDao.queryAllByStaff(staff);
+    public Staff queryById( ) {
+        return this.staffDao.queryById();
     }
 
     /**
@@ -73,17 +63,17 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public Staff update(Staff staff) {
         this.staffDao.update(staff);
-        return this.queryById(staff.getId());
+        return this.queryById(staff.get());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(String id) {
-        return this.staffDao.deleteById(id) > 0;
+    public boolean deleteById( ) {
+        return this.staffDao.deleteById() > 0;
     }
 }

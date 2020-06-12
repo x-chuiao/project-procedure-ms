@@ -8,7 +8,7 @@ import java.util.List;
  * (Staffinfo)表数据库访问层
  *
  * @author makejava
- * @since 2020-06-11 19:05:38
+ * @since 2020-06-12 17:32:33
  */
 public interface StaffinfoDao {
 

@@ -12,7 +12,7 @@ import java.util.List;
  * (Project)表服务实现类
  *
  * @author makejava
- * @since 2020-06-06 17:59:56
+ * @since 2020-06-12 17:32:33
  */
 @Service("projectService")
 public class ProjectServiceImpl implements ProjectService {
@@ -22,24 +22,13 @@ public class ProjectServiceImpl implements ProjectService {
     /**
      * 通过ID查询单条数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 实例对象
      */
     @Override
-    public Project queryById(String id) {
-        return this.projectDao.queryById(id);
+    public Project queryById( ) {
+        return this.projectDao.queryById();
     }
-
-    @Override
-    public List<Project> queryAll(Project project) {
-        return this.projectDao.queryAll(project);
-    }
-
-    @Override
-    public List<Project> queryAll(List<String> pro_ids) {
-        return this.projectDao.queryAllByProIds(pro_ids);
-    }
-
 
     /**
      * 查询多条数据
@@ -74,17 +63,17 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project update(Project project) {
         this.projectDao.update(project);
-        return this.queryById(project.getId());
+        return this.queryById(project.get());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param id 主键
+     * @param  主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(String id) {
-        return this.projectDao.deleteById(id) > 0;
+    public boolean deleteById( ) {
+        return this.projectDao.deleteById() > 0;
     }
 }

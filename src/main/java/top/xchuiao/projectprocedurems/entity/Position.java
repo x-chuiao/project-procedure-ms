@@ -6,10 +6,10 @@ import java.io.Serializable;
  * (Position)实体类
  *
  * @author makejava
- * @since 2020-06-11 19:04:15
+ * @since 2020-06-12 17:32:32
  */
 public class Position implements Serializable {
-    private static final long serialVersionUID = 444335182023863005L;
+    private static final long serialVersionUID = 203129646092918791L;
     
     private Integer posId;
     

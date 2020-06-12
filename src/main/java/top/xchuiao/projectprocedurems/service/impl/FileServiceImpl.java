@@ -2,7 +2,6 @@ package top.xchuiao.projectprocedurems.service.impl;
 
 import top.xchuiao.projectprocedurems.entity.File;
 import top.xchuiao.projectprocedurems.dao.FileDao;
-import top.xchuiao.projectprocedurems.entity.Projectmember;
 import top.xchuiao.projectprocedurems.service.FileService;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,7 @@ import java.util.List;
  * (File)表服务实现类
  *
  * @author makejava
- * @since 2020-06-06 17:59:55
+ * @since 2020-06-12 17:32:32
  */
 @Service("fileService")
 public class FileServiceImpl implements FileService {
@@ -23,18 +22,14 @@ public class FileServiceImpl implements FileService {
     /**
      * 通过ID查询单条数据
      *
-     * @param name 主键
+     * @param  主键
      * @return 实例对象
      */
     @Override
-    public File queryById(String name) {
-        return this.fileDao.queryById(name);
+    public File queryById( ) {
+        return this.fileDao.queryById();
     }
 
-    @Override
-    public  List<File> queryAllPfile(String proId){
-        return this.fileDao.queryAllPfile(proId);
-    }
     /**
      * 查询多条数据
      *
@@ -68,17 +63,17 @@ public class FileServiceImpl implements FileService {
     @Override
     public File update(File file) {
         this.fileDao.update(file);
-        return this.queryById(file.getName());
+        return this.queryById(file.get());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param name 主键
+     * @param  主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(String name) {
-        return this.fileDao.deleteById(name) > 0;
+    public boolean deleteById( ) {
+        return this.fileDao.deleteById() > 0;
     }
 }
