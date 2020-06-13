@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.xchuiao.projectprocedurems.dao.SubmitrecordDao">
-
+<!--ColumnInfo(obj=column:sub_id, name=subId, comment=null, type=java.lang.Long, shortType=Long, custom=false, ext={sqlType=bigint, jdbcType=INTEGER})-->
     <resultMap type="top.xchuiao.projectprocedurems.entity.Submitrecord" id="SubmitrecordMap">
         <result property="subId" column="sub_id" jdbcType="INTEGER"/>
         <result property="proId" column="pro_id" jdbcType="INTEGER"/>
@@ -18,7 +18,7 @@
         select
           sub_id, pro_id, sta_id, sub_intro, submit_time, director_audit, director_comment, client_comment
         from project_procedure_ms.submitrecord
-        where  = #{}
+        where sub_id = #{subId}
     </select>
 
     <!--查询指定行数据-->
@@ -63,9 +63,9 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="" useGeneratedKeys="true">
-        insert into project_procedure_ms.submitrecord(pro_id, sta_id, submit_time, director_audit, director_comment, client_comment)
-        values (#{proId}, #{staId}, #{submitTime}, #{directorAudit}, #{directorComment}, #{clientComment})
+    <insert id="insert" keyProperty="subId" useGeneratedKeys="true">
+        insert into project_procedure_ms.submitrecord(pro_id, sta_id, sub_intro, submit_time, director_audit, director_comment, client_comment)
+        values (#{proId}, #{staId}, #{subIntro}, #{submitTime}, #{directorAudit}, #{directorComment}, #{clientComment})
     </insert>
 
     <!--通过主键修改数据-->
@@ -77,6 +77,9 @@
             </if>
             <if test="staId != null">
                 sta_id = #{staId},
+            </if>
+            <if test="subIntro != null and subIntro != ''">
+                sub_intro = #{subIntro},
             </if>
             <if test="submitTime != null">
                 submit_time = #{submitTime},
@@ -91,12 +94,12 @@
                 client_comment = #{clientComment},
             </if>
         </set>
-        where  = #{}
+        where sub_id = #{subId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from project_procedure_ms.submitrecord where  = #{}
+        delete from project_procedure_ms.submitrecord where sub_id = #{subId}
     </delete>
 
 </mapper>

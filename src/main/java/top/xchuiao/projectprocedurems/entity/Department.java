@@ -1,3 +1,14 @@
+# edit by xchuiao
+makejava="xchuiao"
+
+
+
+
+
+
+    
+    
+
 package top.xchuiao.projectprocedurems.entity;
 
 import java.io.Serializable;
@@ -6,10 +17,10 @@ import java.io.Serializable;
  * (Department)实体类
  *
  * @author makejava
- * @since 2020-06-12 17:32:32
+ * @since 2020-06-13 17:00:55
  */
 public class Department implements Serializable {
-    private static final long serialVersionUID = 625531933752811416L;
+    private static final long serialVersionUID = 746912312275707054L;
     
     private Integer depId;
     

@@ -1,3 +1,14 @@
+# edit by xchuiao
+makejava="xchuiao"
+
+
+
+
+
+
+    
+    
+
 package top.xchuiao.projectprocedurems.entity;
 
 import java.io.Serializable;
@@ -6,10 +17,10 @@ import java.io.Serializable;
  * (Staffinfo)实体类
  *
  * @author makejava
- * @since 2020-06-12 17:32:33
+ * @since 2020-06-13 17:01:15
  */
 public class Staffinfo implements Serializable {
-    private static final long serialVersionUID = -21373787014728454L;
+    private static final long serialVersionUID = 861766035910032561L;
     
     private Integer depId;
     

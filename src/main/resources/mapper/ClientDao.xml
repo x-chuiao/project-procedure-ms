@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.xchuiao.projectprocedurems.dao.ClientDao">
-
+<!--ColumnInfo(obj=column:cli_id, name=cliId, comment=null, type=java.lang.Long, shortType=Long, custom=false, ext={sqlType=bigint, jdbcType=INTEGER})-->
     <resultMap type="top.xchuiao.projectprocedurems.entity.Client" id="ClientMap">
         <result property="cliId" column="cli_id" jdbcType="INTEGER"/>
         <result property="accId" column="acc_id" jdbcType="INTEGER"/>

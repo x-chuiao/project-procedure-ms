@@ -1,3 +1,14 @@
+# edit by xchuiao
+makejava="xchuiao"
+
+
+
+
+
+
+    
+    
+
 package top.xchuiao.projectprocedurems.entity;
 
 import java.util.Date;
@@ -7,10 +18,10 @@ import java.io.Serializable;
  * (Submitrecord)实体类
  *
  * @author makejava
- * @since 2020-06-12 17:32:33
+ * @since 2020-06-13 17:00:49
  */
 public class Submitrecord implements Serializable {
-    private static final long serialVersionUID = -52796326565068481L;
+    private static final long serialVersionUID = 378676878030929018L;
     
     private Long subId;
     

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="top.xchuiao.projectprocedurems.dao.PositionDao">
-
-    <resultMap type="top.xchuiao.projectprocedurems.entity.Position" id="PositionMap">
+<mapper namespace="com.xchuiao.projectprocedurems.dao.PositionDao">
+<!--${pk}-->
+    <resultMap type="com.xchuiao.projectprocedurems.entity.Position" id="PositionMap">
         <result property="posId" column="pos_id" jdbcType="INTEGER"/>
         <result property="posName" column="pos_name" jdbcType="VARCHAR"/>
     </resultMap>

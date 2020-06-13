@@ -7,17 +7,17 @@ import java.util.List;
  * (Submitrecord)表服务接口
  *
  * @author makejava
- * @since 2020-06-12 17:32:33
+ * @since 2020-06-13 17:00:52
  */
 public interface SubmitrecordService {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param  主键
+     * @param subId 主键
      * @return 实例对象
      */
-    Submitrecord queryById( );
+    Submitrecord queryById(Long subId);
 
     /**
      * 查询多条数据
@@ -47,9 +47,9 @@ public interface SubmitrecordService {
     /**
      * 通过主键删除数据
      *
-     * @param  主键
+     * @param subId 主键
      * @return 是否成功
      */
-    boolean deleteById( );
+    boolean deleteById(Long subId);
 
 }

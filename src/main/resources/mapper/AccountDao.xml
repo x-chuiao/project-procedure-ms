@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.xchuiao.projectprocedurems.dao.AccountDao">
-
+<!--ColumnInfo(obj=column:acc_id, name=accId, comment=null, type=java.lang.Long, shortType=Long, custom=false, ext={sqlType=bigint, jdbcType=INTEGER})-->
     <resultMap type="top.xchuiao.projectprocedurems.entity.Account" id="AccountMap">
         <result property="accId" column="acc_id" jdbcType="INTEGER"/>
         <result property="rolId" column="rol_id" jdbcType="INTEGER"/>

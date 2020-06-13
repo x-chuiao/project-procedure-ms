@@ -1,3 +1,14 @@
+# edit by xchuiao
+makejava="xchuiao"
+
+
+
+
+
+
+    
+    
+
 package top.xchuiao.projectprocedurems.entity;
 
 import java.io.Serializable;
@@ -6,10 +17,10 @@ import java.io.Serializable;
  * (Client)实体类
  *
  * @author makejava
- * @since 2020-06-12 17:32:32
+ * @since 2020-06-13 17:00:55
  */
 public class Client implements Serializable {
-    private static final long serialVersionUID = -24486949632656598L;
+    private static final long serialVersionUID = 403173375752535407L;
     
     private Long cliId;
     

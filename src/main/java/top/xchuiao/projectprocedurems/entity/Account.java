@@ -1,3 +1,14 @@
+# edit by xchuiao
+makejava="xchuiao"
+
+
+
+
+
+
+    
+    
+
 package top.xchuiao.projectprocedurems.entity;
 
 import java.io.Serializable;
@@ -6,10 +17,10 @@ import java.io.Serializable;
  * (Account)实体类
  *
  * @author makejava
- * @since 2020-06-12 17:32:19
+ * @since 2020-06-13 17:00:55
  */
 public class Account implements Serializable {
-    private static final long serialVersionUID = 986396424204812319L;
+    private static final long serialVersionUID = -68992815613238054L;
     
     private Long accId;
     

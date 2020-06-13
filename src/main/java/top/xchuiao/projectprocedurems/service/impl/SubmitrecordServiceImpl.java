@@ -12,7 +12,7 @@ import java.util.List;
  * (Submitrecord)表服务实现类
  *
  * @author makejava
- * @since 2020-06-12 17:32:33
+ * @since 2020-06-13 17:00:53
  */
 @Service("submitrecordService")
 public class SubmitrecordServiceImpl implements SubmitrecordService {
@@ -22,12 +22,12 @@ public class SubmitrecordServiceImpl implements SubmitrecordService {
     /**
      * 通过ID查询单条数据
      *
-     * @param  主键
+     * @param subId 主键
      * @return 实例对象
      */
     @Override
-    public Submitrecord queryById( ) {
-        return this.submitrecordDao.queryById();
+    public Submitrecord queryById(Long subId) {
+        return this.submitrecordDao.queryById(subId);
     }
 
     /**
@@ -63,17 +63,17 @@ public class SubmitrecordServiceImpl implements SubmitrecordService {
     @Override
     public Submitrecord update(Submitrecord submitrecord) {
         this.submitrecordDao.update(submitrecord);
-        return this.queryById(submitrecord.get());
+        return this.queryById(submitrecord.getSubId());
     }
 
     /**
      * 通过主键删除数据
      *
-     * @param  主键
+     * @param subId 主键
      * @return 是否成功
      */
     @Override
-    public boolean deleteById( ) {
-        return this.submitrecordDao.deleteById() > 0;
+    public boolean deleteById(Long subId) {
+        return this.submitrecordDao.deleteById(subId) > 0;
     }
 }

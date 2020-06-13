@@ -12,7 +12,7 @@ import java.util.List;
  * (Department)表服务实现类
  *
  * @author makejava
- * @since 2020-06-12 17:32:32
+ * @since 2020-06-13 17:00:55
  */
 @Service("departmentService")
 public class DepartmentServiceImpl implements DepartmentService {

@@ -8,17 +8,17 @@ import java.util.List;
  * (Submitrecord)表数据库访问层
  *
  * @author makejava
- * @since 2020-06-12 17:32:33
+ * @since 2020-06-13 17:00:51
  */
 public interface SubmitrecordDao {
 
     /**
      * 通过ID查询单条数据
      *
-     * @param  主键
+     * @param subId 主键
      * @return 实例对象
      */
-    Submitrecord queryById( );
+    Submitrecord queryById(Long subId);
 
     /**
      * 查询指定行数据
@@ -57,9 +57,9 @@ public interface SubmitrecordDao {
     /**
      * 通过主键删除数据
      *
-     * @param  主键
+     * @param subId 主键
      * @return 影响行数
      */
-    int deleteById( );
+    int deleteById(Long subId);
 
 }
